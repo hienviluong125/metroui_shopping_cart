@@ -1,0 +1,1 @@
+<h1>Product list client site</h1>
