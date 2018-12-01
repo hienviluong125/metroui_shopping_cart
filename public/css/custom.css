@@ -153,3 +153,24 @@ body{
 .my-form-group{
     margin-top : 3px !important;
 }
+.price-text{
+    color:#000000;
+}
+.my-sale{
+    color:#e70707;
+}
+.my-shop{
+    background:#e70707 !important;
+}
+.tab-content{
+    border: -10px solid #ddd;
+    border-top: none;
+    padding: 10px;
+
+}
+.tab-image > img{
+    width: 70%;
+}
+.my-btn-mota:hover{
+    background: #696a6b !important;
+}
