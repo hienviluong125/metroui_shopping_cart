@@ -5,7 +5,9 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
+    <title>Font Awesome Icons</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Metro 4 -->
     <link rel="stylesheet" href="public/css/metro-all.min.css">
     <link rel="stylesheet" href="public/css/custom.css">
@@ -69,22 +71,11 @@
                     <div class="cell-3">
                         CART , USER INFO
                     </div>
-                    <div id="search">
-                            <div class="search">
-        <form id="searchbox" class="popup-content ultimate-search" action="/search" method="get" role="search">
-            <input name="q" type="text" placeholder="Nhập mã hoặc tên sản phẩm..." class="inputbox search-query" autocomplete="off">
-            <button type="submit" class="btn-search btn btn-link"><span class="fa fa-search" aria-hidden="true"></span></button>
-    
-            <input type="hidden" class="collection_id" value="(collectionid:product>=0)">
-            <input type="hidden" class="collection_handle" value="all">
-            <input type="hidden" class="collection_name" value="all">
-        </form>
-    </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="pos-fixed fixed-top main-menu-wrapper app-bar-wrapper z-top " data-role="appbar" data-expand-point="md">
+    <div class="pos-fixed fixed-top main-menu-wrapper app-bar-wrapper z-top" data-role="appbar" data-expand-point="md">
         <header class="container pos-relative">
             <ul class="h-menu mega main-menu fg-white">
                 <li><a href="#">Trang chủ</a></li>
@@ -99,65 +90,19 @@
                 <li>
                     <a href="#" class="dropdown-toggle no-marker">Nhà sản xuất</a>
                     <div class="mega-container p-2 m-1 bg-white" data-role="dropdown">
-
                     </div>
                 </li>
                 <li><a href="#">Liên hệ</a></li>
             </ul>
         </header>
     </div>
-    <div class="container my-cart">
+    <div class="container my-cart ">
         <div class="text-center">
-            <h3 class="text-medium">Giỏ hàng</h3>
+            <h3 class="text-medium mt-3  ">Giỏ hàng</h3>
+            <h6 class="text-normal mt-6">Không có sản phẩm nào trong giỏ hàng!</h6>
+            <a href="#"><i style="font-size:15px" class="fa">&#xf112;</i>Tiếp tục mua hàng</a>
         </div>
-        <div>
-            <table class="table table-border cell-border compact text-center">
-                <thead>
-                    <tr clas="text-center">
-                        <th>
-                            <p class="my-text text-center ">Sản phẩm</p>
-                        </th>
-                        <th>
-                            <p class="my-text text-center ">Tên sản phẩm</p>
-                        </th>
-                        <th>
-                            <p class="my-text text-center ">Số lượng</p>
-                        </th>
-                        <th>
-                            <p class="my-text text-center ">Giá tiền</p>
-                        </th>
-                        <th>
-                            <p class="my-text text-center ">Xóa</p>
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><img style="width:200px" src="public/img/razerblackwidow.png"></td>
-                        <td><a class="text-medium" href="#">
-                                <h5 class="my-btn-text">Razer Blackwidow</h5>
-                            </a></td>
-                        <td class="qty">
-                            <input class="center-block" item-price="169000000" type="number" size="4" name="updates[]"
-                                min="1" id="updates_1034909369" value="1" onfocus="this.select();" class="tc item-quantity" >
-                        </td>
-                        <td> <h4>1,690,000₫</h4></td>
-                        <td><span class="mif-bin mif-4x my-bin"></span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="4">
-                            <h4>Tổng tiền: </h4>
-                        </td>
-                        <td>
-                            <h6>2.000.000₫</h6>
-                        </td>
-                    </tr>
-
-                </tbody>
-            </table>
-        </div>
-
+    </div>
     </div>
     <footer class="main-footer">
         <div class="container border-top pt-10 mt-20">

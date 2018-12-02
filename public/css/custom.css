@@ -174,3 +174,24 @@ body{
 .my-btn-mota:hover{
     background: #696a6b !important;
 }
+.my-cart{
+    margin-top:145px !important;
+}
+.my-text{
+font-size:20px;
+}
+.my-btn-text:hover{
+color:#f80ba9;
+}
+.qty input {
+    width: 65px;
+    text-align: center;
+}
+.center-block {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+  }
+.my-bin{
+      color:#ff0000;
+  }
