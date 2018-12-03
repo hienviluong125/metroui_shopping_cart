@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <!-- Metro 4 -->
+    <link rel="stylesheet" href="public/css/metro-all.min.css">
+    <link rel="stylesheet" href="public/css/custom.css">
+</head>
+
+
+<body>
+    <div class="pos-fixed fixed-top header-menu-wrapper app-bar-wrapper z-top top-header-bg" data-role="appbar"
+        data-expand-point="md">
+        <header class="container pos-relative top-header-bg">
+            <ul class="float-left no-hover header-menu h-menu top-header-bg ">
+                <li>
+                    <a href="#">
+                        <span class="mif-mail"></span>
+                        Đăng ký
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="mif-phone"></span>
+                        Đăng ký
+                    </a>
+                </li>
+            </ul>
+            <ul class="float-right no-hover header-menu h-menu top-header-bg ">
+                <li>
+                    <a href="#">
+                        Email <span class="mif-mail"></span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        Phone <span class="mif-phone"></span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="mif-near-me"></span>
+                        Đăng nhập
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="mif-user"></span>
+                        Đăng ký
+                    </a>
+                </li>
+            </ul>
+        </header>
+    </div>
+    <div class="pos-fixed fixed-top middle-header app-bar-wrapper z-top">
+        <div class="container  pos-relative">
+            <div class="grid">
+                <div class="row">
+                    <div class="cell-3">
+                        WeeDev
+                    </div>
+                    <div class="cell-6">
+                        sad
+                    </div>
+                    <div class="cell-3">
+                        CART , USER INFO
+                    </div>
+                    <div id="search">
+                            <div class="search">
+        <form id="searchbox" class="popup-content ultimate-search" action="/search" method="get" role="search">
+            <input name="q" type="text" placeholder="Nhập mã hoặc tên sản phẩm..." class="inputbox search-query" autocomplete="off">
+            <button type="submit" class="btn-search btn btn-link"><span class="fa fa-search" aria-hidden="true"></span></button>
+    
+            <input type="hidden" class="collection_id" value="(collectionid:product>=0)">
+            <input type="hidden" class="collection_handle" value="all">
+            <input type="hidden" class="collection_name" value="all">
+        </form>
+    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="pos-fixed fixed-top main-menu-wrapper app-bar-wrapper z-top " data-role="appbar" data-expand-point="md">
+        <header class="container pos-relative">
+            <ul class="h-menu mega main-menu fg-white">
+                <li><a href="#">Trang chủ</a></li>
+                <li><a href="#">Giới thiệu</a></li>
+                <li>
+                    <a href="#" class="dropdown-toggle no-marker">Loại sản phẩm</a>
+                    <div class="mega-container p-2 m-1 bg-white" data-role="dropdown">
+
+                    </div>
+                </li>
+                <li><a href="#">Khuyến mãi</a></li>
+                <li>
+                    <a href="#" class="dropdown-toggle no-marker">Nhà sản xuất</a>
+                    <div class="mega-container p-2 m-1 bg-white" data-role="dropdown">
+
+                    </div>
+                </li>
+                <li><a href="#">Liên hệ</a></li>
+            </ul>
+        </header>
+    </div>
+    <div class="container my-cart">
+        <div class="text-center">
+            <h3 class="text-medium">Giỏ hàng</h3>
+        </div>
+        <div>
+            <table class="table table-border cell-border compact text-center">
+                <thead>
+                    <tr clas="text-center">
+                        <th>
+                            <p class="my-text text-center ">Sản phẩm</p>
+                        </th>
+                        <th>
+                            <p class="my-text text-center ">Tên sản phẩm</p>
+                        </th>
+                        <th>
+                            <p class="my-text text-center ">Số lượng</p>
+                        </th>
+                        <th>
+                            <p class="my-text text-center ">Giá tiền</p>
+                        </th>
+                        <th>
+                            <p class="my-text text-center ">Xóa</p>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><img style="width:200px" src="public/img/razerblackwidow.png"></td>
+                        <td><a class="text-medium" href="#">
+                                <h5 class="my-btn-text">Razer Blackwidow</h5>
+                            </a></td>
+                        <td class="qty">
+                            <input class="center-block" item-price="169000000" type="number" size="4" name="updates[]"
+                                min="1" id="updates_1034909369" value="1" onfocus="this.select();" class="tc item-quantity" >
+                        </td>
+                        <td> <h4>1,690,000₫</h4></td>
+                        <td><span class="mif-bin mif-4x my-bin"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="4">
+                            <h4>Tổng tiền: </h4>
+                        </td>
+                        <td>
+                            <h6>2.000.000₫</h6>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    <footer class="main-footer">
+        <div class="container border-top pt-10 mt-20">
+            <div class="row">
+                <div class="cell-md-5 text-center-md text-left">
+                    <ul class="inline-list reduce-2">
+                        <li>&copy; 2018 Metro 4</li>
+                        <li><a href="">Terms</a></li>
+                        <li><a href="">Privacy</a></li>
+                        <li><a href="">Security</a></li>
+                        <li><a href="">Status</a></li>
+                        <li><a href="">Help</a></li>
+                    </ul>
+                </div>
+                <div class="cell-md-2 text-center">
+                    <div>
+                        <a href="" class="no-decor fg-lightGray"><span class="mif-github mif-2x"></span></a>
+                    </div>
+                </div>
+                <div class="cell-md-5 text-center-md text-right">
+                    <ul class="inline-list reduce-2">
+                        <li><a href="">Contact</a></li>
+                        <li><a href="">API</a></li>
+                        <li><a href="">Training</a></li>
+                        <li><a href="">Shop</a></li>
+                        <li><a href="">Blog</a></li>
+                        <li><a href="">About</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+
+
+
+
+
+
+    <!-- jQuery first, then Metro UI JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="public/js/metro.min.js"></script>
+</body>
+
+</html>
+</body>
+
+</html>
