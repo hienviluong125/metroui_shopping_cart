@@ -1,25 +1,23 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">Navbar</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="<?php echo ROOTURL?>/dashboard/product/productList">Product list</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="<?php echo ROOTURL?>/dashboard/product/add">Add form</a>
-      </li>
-     
-      <li class="nav-item">
-        <a class="nav-link disabled" href="<?php echo ROOTURL?>/dashboard/product/edit">Edit form</a>
-      </li>
-    </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
-  </div>
-</nav>
+<aside class="sidebar pos-absolute z-2" data-role="sidebar" data-toggle="#sidebar-toggle-3" id="sb3" data-shift=".shifted-content">
+        <div class="sidebar-header">
+            <div class="avatar">
+                <!-- <img data-role="gravatar" data-email="sergey@pimenov.com.ua"> -->
+            </div>
+        </div>
+        <ul class="sidebar-menu">
+            <li>1</li>
+            <li>
+                2
+            </li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+    </aside>
+    <div class="shifted-content h-100 p-ab">
+        <div class="app-bar pos-absolute bg-red z-1" data-role="appbar">
+            <button class="app-bar-item c-pointer" id="sidebar-toggle-3">
+                <span class="mif-menu fg-white"></span>
+            </button>
+        </div>
+          <div class="h-100 p-4">

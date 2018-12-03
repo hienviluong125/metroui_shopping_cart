@@ -1,8 +1,12 @@
 <?php
+    function vcl(){
+        return'vcl';
+    }
     class Database {
         protected $conn;
         protected $stmt;
         public function __construct(){
+
             $dsn = 'mysql:host=' . HOST . ';dbname=' . DATABASE . ';';
             // Set options
             $options = array(
@@ -44,6 +48,9 @@
             $this->stmt->bindValue($placeholder, $value);
         }
        
+        public function lastInsertId(){
+            return $this->conn->lastInsertId();
+        }
 
       
     }
