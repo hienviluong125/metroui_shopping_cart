@@ -18,6 +18,9 @@ body{
 .main-menu > li > a{
     text-align: left !important;
 }
+.main-menu > li:hover{
+    background :#00aff0!important;
+}
 .slider{
     margin-top:145px !important;
     min-height:350px !important;
@@ -72,10 +75,10 @@ body{
 }
 .main-menu-wrapper{
     margin-top:90px !important;
-    background : #0287ca !important;
+  
 }
 .main-menu{
-    background : #0287ca !important;
+   
 }
 
 
@@ -124,7 +127,7 @@ body{
     color:rgb(99, 99, 99);
 }
 .main-footer{
-    background:	#0287CA!important;
+  
 }
 
 .my-btn{
@@ -197,4 +200,14 @@ color:#f80ba9;
   }
 .text-center-chuyentrang{
     text-align: center !important;
+}
+#previewImage > *{
+    text-align: center;
+}
+.success-toast{
+    position: absolute;
+    top:8%;
+    left:70% !important;
+ /* width:100%; */
+    height:35px !important; 
 }

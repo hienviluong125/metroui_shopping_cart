@@ -5,20 +5,16 @@
             $this->model = $this->initModel('products');
         }
 
-        public function productList(){
-            $this->renderView('dashboard/product/list');
-        }
+       public function index($page){
+         
+           
+            $data = [
+             
+           ];
+           $this->renderView('dashboard/product/index','dashboard',$data);
+       }
 
-        public function add(){
-            $this->renderView('dashboard/product/add');
-        }
-
-        public function delete(){
-            $this->renderView('dashboard/product/delete');
-        }
-
-        public function edit(){
-            $this->renderView('dashboard/product/edit');
-        }
-       
+       public function defaultRedirect(){
+          header('Location: '. ROOTURL . '/dashboard/product/index/1' );
+       }
     }
