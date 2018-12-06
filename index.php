@@ -1,8 +1,6 @@
 <?php 
-     require_once('libs/Config.php');
-     require_once('libs/Database.php');
-     require_once('libs/BaseController.php');
-     require_once('libs/main.php');
+     require_once('helpers/Bootstrap.php');
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,6 +20,7 @@
         $app = new main();
     ?>
 
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.11/lodash.min.js"></script>
     <script src="<?php echo ROOTURL; ?>/public/js/jquery-3.3.1.min.js"></script>
     <script src="<?php echo ROOTURL; ?>/public/js/metro.min.js"></script>
     <script src="<?php echo ROOTURL; ?>/public/js/main.js"></script>
