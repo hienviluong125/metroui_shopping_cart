@@ -211,3 +211,6 @@ color:#f80ba9;
  /* width:100%; */
     height:35px !important; 
 }
+.custom-table{
+    min-height:600px;
+}

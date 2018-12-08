@@ -13,16 +13,12 @@
             $this->db->bindValue(':name',$data['name']);
             $this->db->bindValue(':image',$data['image']);
             $this->db->bindValue(':link_name',$data['link_name']);
-            $result = [
-                'isSuccess' => false,
-                'lastInsertedId' => -1
-            ];
             if($this->db->execute()){
-                //thêm list hình tại đây
-                $result['isSuccess'] = true;
-                $result['lastInsertedId'] = $this->db->lastInsertId();
+               return true;
             }
-            return $result;
+            else{
+                return false;
+            }
         }
 
         //lấy 1 loại theo id
@@ -73,7 +69,19 @@
 
 
         //sửa 1 loại theo id và tất cả các trường còn lại
-
+        public function editCategoryById($data){
+            
+            $result = false;
+            $this->db->prepare("update categories set name=(:name),image=(:image),link_name=(:link_name) where id=(:id)");
+            $this->db->bindValue(':id',$data['id']);
+            $this->db->bindValue(':name',$data['name']);
+            $this->db->bindValue(':image',$data['image']);
+            $this->db->bindValue(':link_name',$data['link_name']);
+            if($this->db->execute()){
+                $result = true;
+            }
+            return $result;
+        }
     }
 
    

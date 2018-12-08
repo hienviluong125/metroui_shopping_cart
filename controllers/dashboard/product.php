@@ -5,12 +5,8 @@
             $this->model = $this->initModel('products');
         }
 
-       public function index($page){
-         
-           
-            $data = [
-             
-           ];
+       public function index(){
+            $data = [];
            $this->renderView('dashboard/product/index','dashboard',$data);
        }
 

@@ -5,14 +5,8 @@
             $this->model = $this->initModel('categories');
         }
 
-       public function index($page){
-            $result = $this->model->getAllCategories(0);
-           
-            $data = [
-               'categories' => $result['categories'],
-               'page'=>$page,
-               'count'=>$result['count']
-           ];
+       public function index(){
+            $data = [];
            $this->renderView('dashboard/category/index','dashboard',$data);
        }
 
