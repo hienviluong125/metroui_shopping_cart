@@ -33,16 +33,6 @@
             <ul class="float-right no-hover header-menu h-menu top-header-bg ">
                 <li>
                     <a href="#">
-                        Email <span class="mif-mail"></span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        Phone <span class="mif-phone"></span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
                         <span class="mif-near-me"></span>
                         Đăng nhập
                     </a>
@@ -60,8 +50,8 @@
         <div class="container  pos-relative">
             <div class="grid">
                 <div class="row">
-                    <div class="cell-3">
-                        WeeDev
+                    <div class="cell-3 logo">
+                        <img src="public/img/logo.jpg" height="50px">
                     </div>
                     <div class="cell-6">
                         sad
@@ -73,9 +63,10 @@
             </div>
         </div>
     </div>
-    <div class="pos-fixed fixed-top main-menu-wrapper bg-blue app-bar-wrapper z-top " data-role="appbar" data-expand-point="md">
-        <header class="container pos-relative bg-blue">
-            <ul class="h-menu mega main-menu  bg-blue fg-white">
+    <div class="pos-fixed fixed-top main-menu-wrapper bg-custom-blue app-bar-wrapper z-top " data-role="appbar"
+        data-expand-point="md">
+        <header class="container pos-relative bg-custom-blue">
+            <ul class="h-menu mega main-menu  bg-custom-blue fg-white">
                 <li><a href="#">Trang chủ</a></li>
                 <li><a href="#">Giới thiệu</a></li>
                 <li>
@@ -96,15 +87,29 @@
         </header>
     </div>
     <div class="container ">
-        <div class="grid ml-2 slider bg-blue">
-            <div class="row">
-                <div class="cell-8">
-                    <img src="public/img/slideshow_2.jpg" style="width:95%">
+        <div class="ml-2 slider bg-blue">
+            <div class="slider-wrapper">
+
+
+                <div id="my-slider">
+                    <div class="sliders" data-animating="false">
+                        <div class="image">
+                            <img src="public/img/adsense0.jpg" height="300px" />
+                        </div>
+                        <div class="image">
+                            <img src="public/img/adsense1.png" height="300px" />
+                        </div>
+                        <div class="image">
+                            <img src="public/img/adsense2.png" height="300px" />
+                        </div>
+
+                    </div>
+
                 </div>
-                <div class="cell-4">
-                    vcl
-                </div>
+                <span  class="prev mif-chevron-left mif-5x fg-white"></span>
+                <span class="next mif-chevron-right mif-5x fg-white"></span>
             </div>
+
         </div>
     </div>
     <div class="container">
@@ -163,21 +168,21 @@
 
                     </div>
                 </div>
-            </div>    
+            </div>
             <ul class="pagination flex-justify-center ">
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item active"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item no-link"><a class="page-link">...</a></li>
-                    <li class="page-item"><a class="page-link" href="#">7</a></li>
-                    <li class="page-item"><a class="page-link" href="#">8</a></li>
-                    <li class="page-item"><a class="page-link" href="#">9</a></li>
-                    <li class="page-item service"><a class="page-link" href="#">Next ></a></li>
-                </ul>         
-        </div>            
-                                   
-             
-        
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item active"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item no-link"><a class="page-link">...</a></li>
+                <li class="page-item"><a class="page-link" href="#">7</a></li>
+                <li class="page-item"><a class="page-link" href="#">8</a></li>
+                <li class="page-item"><a class="page-link" href="#">9</a></li>
+                <li class="page-item service"><a class="page-link" href="#">Next ></a></li>
+            </ul>
+        </div>
+
+
+
 
 
 
@@ -209,15 +214,15 @@
 
             </div>
             <ul class="pagination flex-justify-center ">
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item active"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item no-link"><a class="page-link">...</a></li>
-                    <li class="page-item"><a class="page-link" href="#">7</a></li>
-                    <li class="page-item"><a class="page-link" href="#">8</a></li>
-                    <li class="page-item"><a class="page-link" href="#">9</a></li>
-                    <li class="page-item service"><a class="page-link" href="#">Next ></a></li>
-                </ul>       
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item active"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item no-link"><a class="page-link">...</a></li>
+                <li class="page-item"><a class="page-link" href="#">7</a></li>
+                <li class="page-item"><a class="page-link" href="#">8</a></li>
+                <li class="page-item"><a class="page-link" href="#">9</a></li>
+                <li class="page-item service"><a class="page-link" href="#">Next ></a></li>
+            </ul>
         </div>
     </div>
 
@@ -263,8 +268,9 @@
 
 
     <!-- jQuery first, then Metro UI JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="public/js/jquery-3.3.1.min.js"></script>
     <script src="public/js/metro.min.js"></script>
+    <script src="public/js/main.js"></script>
 </body>
 
 </html>

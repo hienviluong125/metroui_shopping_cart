@@ -1,7 +1,7 @@
 
 //load bảng theo object array
 function loadToTable(items) {
-  //  if(items.length < )
+    //  if(items.length < )
     let table = $('.table');
     table.find('thead').html('');
     table.find('tbody').html('');
@@ -16,9 +16,9 @@ function loadToTable(items) {
     table.find('thead').append(trHead);
 
     // add rows to table
-    
+
     items.forEach(function (obj) {
-       
+
         let convertObjToArr = _.toArray(obj);
         let trBody = $("<tr></tr>");
         convertObjToArr.forEach(function (elm, index) {
@@ -121,7 +121,7 @@ function pageAction() {
         else if ($(this).text() === 'Prev') {
             let currentPage = parseInt($('.pagination').data('page'));
             if (currentPage > 1) {
-              
+
                 let prevPage = currentPage - 1;
                 getAllCategories(prevPage);
                 $('.pagination').data('page', prevPage);
@@ -195,38 +195,87 @@ function initPagination(currentPage, lastPage) {
 
 }
 
-function loadFunctionWithUrl(currentUrl){
+function loadFunctionWithUrl(currentUrl) {
     //chỉ load các function nếu vào đúng url
 }
 
 // function mapKeysOfTable(tableSelector){
 //     console.log($('.table'));
-   
+
 // }
 
+function sliderInit() {
+    function nextImage() {
+        var isAnimating = $('.sliders').data('animating');
+        if (!isAnimating) {
+            $('.sliders').data('animating', true);
+            let marginLeftAttr = $('.sliders').css('margin-left');
+            let runTo = '-=840px';
+            if (marginLeftAttr === '-1680px') {
+                runTo = '+=1680px';
+            }
+            $('.sliders')
+                .animate({ 'margin-left': runTo },
+                    500,
+                    function () {
+                        $('.sliders').data('animating', false);
+                    }
+                )
+        }
+    }
+
+    function prevImage() {
+        var isAnimating = $('.sliders').data('animating');
+        if (!isAnimating) {
+            $('.sliders').data('animating', true);
+            let marginLeftAttr = $('.sliders').css('margin-left');
+            let runTo = '+=840px';
+            if (marginLeftAttr === '0px') {
+                runTo = '-=1680px';
+            }
+            $('.sliders')
+                .animate({ 'margin-left': runTo },
+                    500,
+                    function () {
+                        $('.sliders').data('animating', false);
+                    }
+                )
+        }
+    }
+
+    $('.prev').on('click', function () {
+        prevImage();
+    });
+
+    $('.next').on('click', function () {
+        nextImage();
+    })
+}
 
 $(document).ready(function () {
+    sliderInit();
     let page = parseInt($('.pagination').data('page'));
     let url = window.location.href.toString();
     // console.log(url.includes('dashboard/category'));
     // console.log(url.includes('dashboard/product'));
-    if(url.includes('dashboard/category')){
+    if (url.includes('dashboard/category')) {
         toggleEditForm()
         getAllCategories(page);
         addCategory();
         deleteCategory();
     }
-    else if(url.includes('dashboard/product')){
+    else if (url.includes('dashboard/product')) {
         getAllProducts(page);
     }
     // else if(url.includes('dashboard/category'))
-    
 
 
-  
+
+
     pageAction();
+    // sliderInit();
 
-   // mapKeysOfTable('xxx');
+    // mapKeysOfTable('xxx');
 });
 
 
