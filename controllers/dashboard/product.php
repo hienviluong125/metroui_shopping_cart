@@ -5,9 +5,10 @@
             $this->model = $this->initModel('products');
         }
 
-       public function index(){
+        public function index(){
             $data = [];
-           $this->renderView('dashboard/product/index','dashboard',$data);
+         
+           $this->renderView('product/index',$data,'dashboard');
        }
 
        public function defaultRedirect(){

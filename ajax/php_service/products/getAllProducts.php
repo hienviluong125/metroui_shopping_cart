@@ -6,5 +6,6 @@
 
     $model = new products();
     $data = $model->getAllProducts(0);
-  echo (json_encode($data));
+  // $data = "vl";
+   echo (json_encode($data));
 ?>

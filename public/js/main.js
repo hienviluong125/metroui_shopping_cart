@@ -35,7 +35,7 @@ function loadToTable(items) {
         });
         let editBtn = $("<button></button>")
             .attr({
-                "data-cateid": convertObjToArr[0],
+                "data-id": convertObjToArr[0],
                 "class": "edit-btn button border-btn success small"
             })
             .append("<span class='mif-pencil'></span>&ensp;Sửa</button>")
@@ -43,7 +43,7 @@ function loadToTable(items) {
 
         let deleteBtn = $("<button></button>")
             .attr({
-                "data-cateid": convertObjToArr[0],
+                "data-id": convertObjToArr[0],
                 "class": "ml-2 delete-btn button border-btn success small bg-red"
             })
             .append("<span class='mif-bin'></span>&ensp;Xóa</button>")
@@ -110,20 +110,20 @@ function getAjaxPath() {
 }
 
 //chuyển trang
-function pageAction() {
+function pageAction(getAllSchema) {
     $('.pagination').on('click', 'a.page-link', function () {
         // let currentPage = $('.pagination');
         // let lastPage =  $('.pagination');
 
         if ($(this).text() === 'First') {
-            getAllCategories(1);
+            getAllSchema(1);
         }
         else if ($(this).text() === 'Prev') {
             let currentPage = parseInt($('.pagination').data('page'));
             if (currentPage > 1) {
 
                 let prevPage = currentPage - 1;
-                getAllCategories(prevPage);
+                getAllSchema(prevPage);
                 $('.pagination').data('page', prevPage);
             }
         }
@@ -133,18 +133,18 @@ function pageAction() {
             let lastPage = parseInt($('.pagination').data('lastpage'))
             if (currentPage < lastPage) {
                 let nextPage = parseInt($('.pagination').data('page')) + 1;
-                getAllCategories(nextPage);
+                getAllSchema(nextPage);
                 $('.pagination').data('page', nextPage);
             }
         }
         else if ($(this).text() === 'Last') {
             let lastPage = parseInt($('.pagination').data('lastpage'))
-            getAllCategories(lastPage);
+            getAllSchema(lastPage);
         }
         else {
             let moveToPage = parseInt($(this).text());
             $('.pagination').data('page', moveToPage);
-            getAllCategories(moveToPage);
+            getAllSchema(moveToPage);
         }
     });
 
@@ -263,19 +263,55 @@ $(document).ready(function () {
         getAllCategories(page);
         addCategory();
         deleteCategory();
+        pageAction(getAllCategories);
+        
     }
     else if (url.includes('dashboard/product')) {
-        getAllProducts(page);
+       getAllProducts(page);
+       deleteProducts();
+       pageAction(getAllProducts);
+    //    console.log("vl");
     }
     // else if(url.includes('dashboard/category'))
 
 
 
 
-    pageAction();
+  
+   // toggleSearchCate();
+    //filterCurrentCate();
+    //selectCate();
+
     // sliderInit();
 
     // mapKeysOfTable('xxx');
 });
+
+function toggleSearchCate() {
+
+    $('.search-by > span').on('click', function () {
+        $('.search-by-list').slideToggle(250);
+    })
+}
+function filterCurrentCate() {
+    let currentCate = $('.search-by').data('cate');
+    $('.search-by > .cate').text(currentCate);
+    let cateList = $('.search-by-list').children();
+    cateList.each(function (elm) {
+        if ($(this).text() === currentCate) {
+            $(this).addClass('selected-cate');
+        }
+    })
+}
+
+function selectCate() {
+    $('.search-by-list').find('p').on('click', function () {
+        $('.search-by-list').slideToggle(250);
+        $('.search-by-list>p.selected-cate').removeClass('selected-cate');
+        $('.search-by').data('cate', $(this).text());
+        filterCurrentCate();
+    })
+}
+
 
 

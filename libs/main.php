@@ -5,7 +5,7 @@
         private $params; // tham số cho controller
         public function __construct(){
 
-            $this->currentMethod = 'defaultRedirect';
+            $this->currentMethod = 'index';
 
             $url = $this->getUrl();
             $siteType = '';

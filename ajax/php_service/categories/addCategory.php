@@ -37,7 +37,7 @@
     }
 
    
-    
+  //  $queryResult = "vcl";
     
   
     echo(json_encode($queryResult));

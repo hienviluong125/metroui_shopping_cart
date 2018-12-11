@@ -105,7 +105,7 @@
 
 
  <div class="grid">
-    <div class="row manager" data-state="adding">
+    <div class="row product-manager manager" data-state="adding">
         <div class="cell-12 adding">
             <button class="button secondary rounded" id="add_frm" >
                 <span class="mif-add"></span>

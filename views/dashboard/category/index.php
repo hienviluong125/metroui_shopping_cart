@@ -1,5 +1,5 @@
 <div class="grid">
-    <div class="row manager" data-state="adding">
+    <div class="row category-manager manager" data-state="adding">
         <div class="cell-6 adding">
             <button class="button secondary rounded" id="add_frm" >
                 <span class="mif-add"></span>

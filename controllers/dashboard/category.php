@@ -7,7 +7,8 @@
 
        public function index(){
             $data = [];
-           $this->renderView('dashboard/category/index','dashboard',$data);
+         
+           $this->renderView('category/index',$data,'dashboard');
        }
 
        public function defaultRedirect(){

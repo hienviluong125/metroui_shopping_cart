@@ -33,7 +33,6 @@ function addCategory() {
             cache: false,
             processData: false,
             success: function (data) {
-                
                 let result = $.parseJSON(data);
                 if (result) {
                     clearForm($('#categoryAddForm'));
@@ -65,7 +64,7 @@ function deleteCategory() {
     $('.table').on('click', 'button.delete-btn', function () {
         let clickedElement = $(this);
         deleteConfirm(function () {
-            let id = { "id": clickedElement.data('cateid') };
+            let id = { "id": clickedElement.data('id') };
             let body = JSON.stringify(id);
             $.ajax({
                 type: "POST",
@@ -111,7 +110,7 @@ function editCategory() {
                     getAllCategories(page);
                     $('.adding').css('display', 'block');
                     $('.editing').css('display', 'none');
-                    $('.manager').data('state', 'adding')
+                    $('.category-manager').data('state', 'adding')
                 }
                 else {
                     runToast('error', "Sửa thất bại", 1000, null);
@@ -132,11 +131,11 @@ function editCategory() {
 
 function toggleEditForm() {
     $('.table').on('click', 'button.edit-btn', function () {
-        let state = $('.manager').data('state')
+        let state = $('.category-manager').data('state')
         if (state === 'adding') {
             $('.adding').css('display', 'none');
             $('.editing').css('display', 'block');
-            $('.manager').data('state', 'editing')
+            $('.category-manager').data('state', 'editing')
         }
 
 
@@ -157,12 +156,12 @@ function toggleEditForm() {
 
 
 
-    $('.manager').on('click', 'button.open-adding-btn', function () {
-        let state = $('.manager').data('state')
+    $('.category-manager').on('click', 'button.open-adding-btn', function () {
+        let state = $('.category-manager').data('state')
         if (state === 'editing') {
             $('.adding').css('display', 'block');
             $('.editing').css('display', 'none');
-            $('.manager').data('state', 'adding')
+            $('.category-manager').data('state', 'adding')
         }
     })
 

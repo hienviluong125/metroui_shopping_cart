@@ -44,8 +44,14 @@
             return $result;
         }
 
-        public function bindValue($placeholder, $value){
-            $this->stmt->bindValue($placeholder, $value);
+        public function bindValue($placeholder, $value,$type){
+            switch($type){
+                case 'int' : $this->stmt->bindValue($placeholder, $value,PDO::PARAM_INT);
+                break;
+                case 'string' : $this->stmt->bindValue($placeholder, $value,PDO::PARAM_STR);
+                break;
+            }
+           
         }
        
         public function lastInsertId(){

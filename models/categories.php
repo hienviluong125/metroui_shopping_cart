@@ -10,9 +10,9 @@
         //thêm loại sản phẩm
         public function addNewCategory($data){
             $this->db->prepare(" insert into categories (name,image,link_name) values (:name,:image,:link_name)");
-            $this->db->bindValue(':name',$data['name']);
-            $this->db->bindValue(':image',$data['image']);
-            $this->db->bindValue(':link_name',$data['link_name']);
+            $this->db->bindValue(':name',$data['name'],'string');
+            $this->db->bindValue(':image',$data['image'],'string');
+            $this->db->bindValue(':link_name',$data['link_name'],'string');
             if($this->db->execute()){
                return true;
             }
@@ -25,7 +25,7 @@
         public function getCategoryById($id){
             $result = '';
             $this->db->prepare("select c.id,c.name,c.link_name,c.image  from categories c where id =(:id)");
-            $this->db->bindValue(':id',$id);
+            $this->db->bindValue(':id',$id,'int');
             if($this->db->execute()){
                 $result = $this->db->fetchOne();
             }
@@ -59,7 +59,7 @@
         public function deleteCategoryById($id){
             $result = false;
             $this->db->prepare("delete from categories where id =(:id)");
-            $this->db->bindValue(':id',$id);
+            $this->db->bindValue(':id',$id,'int');
             if($this->db->execute()){
                 $result = true;
             }
@@ -73,10 +73,10 @@
             
             $result = false;
             $this->db->prepare("update categories set name=(:name),image=(:image),link_name=(:link_name) where id=(:id)");
-            $this->db->bindValue(':id',$data['id']);
-            $this->db->bindValue(':name',$data['name']);
-            $this->db->bindValue(':image',$data['image']);
-            $this->db->bindValue(':link_name',$data['link_name']);
+            $this->db->bindValue(':id',$data['id'],'int');
+            $this->db->bindValue(':name',$data['name'],'string');
+            $this->db->bindValue(':image',$data['image'],'string');
+            $this->db->bindValue(':link_name',$data['link_name'],'string');
             if($this->db->execute()){
                 $result = true;
             }
