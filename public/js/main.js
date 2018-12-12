@@ -112,9 +112,6 @@ function getAjaxPath() {
 //chuyển trang
 function pageAction(getAllSchema) {
     $('.pagination').on('click', 'a.page-link', function () {
-        // let currentPage = $('.pagination');
-        // let lastPage =  $('.pagination');
-
         if ($(this).text() === 'First') {
             getAllSchema(1);
         }
@@ -143,8 +140,8 @@ function pageAction(getAllSchema) {
         }
         else {
             let moveToPage = parseInt($(this).text());
+            
             $('.pagination').data('page', moveToPage);
-            getAllSchema(moveToPage);
         }
     });
 
@@ -199,11 +196,6 @@ function loadFunctionWithUrl(currentUrl) {
     //chỉ load các function nếu vào đúng url
 }
 
-// function mapKeysOfTable(tableSelector){
-//     console.log($('.table'));
-
-// }
-
 function sliderInit() {
     function nextImage() {
         var isAnimating = $('.sliders').data('animating');
@@ -253,6 +245,11 @@ function sliderInit() {
 }
 
 $(document).ready(function () {
+    toggleSearchCate();
+    filterCurrentCate();
+    selectCate();
+    toggleUserInfo();
+
     sliderInit();
     let page = parseInt($('.pagination').data('page'));
     let url = window.location.href.toString();
@@ -264,28 +261,31 @@ $(document).ready(function () {
         addCategory();
         deleteCategory();
         pageAction(getAllCategories);
-        
+
     }
     else if (url.includes('dashboard/product')) {
-       getAllProducts(page);
-       deleteProducts();
-       pageAction(getAllProducts);
-    //    console.log("vl");
+        getAllProducts(page);
+        deleteProducts();
+        pageAction(getAllProducts);
+        //    console.log("vl");
     }
     // else if(url.includes('dashboard/category'))
 
 
 
 
-  
-   // toggleSearchCate();
-    //filterCurrentCate();
-    //selectCate();
 
-    // sliderInit();
 
     // mapKeysOfTable('xxx');
 });
+
+
+function toggleUserInfo(){
+    $('.user-dd-icon').on('click',function(){
+        $('.user-info-dropdown').slideToggle(250);
+    })
+
+}
 
 function toggleSearchCate() {
 

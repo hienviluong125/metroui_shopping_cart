@@ -5,13 +5,13 @@
                 <li>
                     <a href="#">
                         <span class="mif-mail"></span>
-                        Đăng ký
+                        WeeDev@blur.it.vn
                     </a>
                 </li>
                 <li>
                     <a href="#">
                         <span class="mif-phone"></span>
-                        Đăng ký
+                        + (0123) 45678
                     </a>
                 </li>
             </ul>
@@ -42,7 +42,7 @@
                         <div class="search-bar bg-white">
                             <div class="search-by bg-white" data-cate="Tất cả">
                                 <span class="cate"></span>
-                                <span class="mif-chevron-thin-down float-right pr-2"></span>
+                                <span class="mif-chevron-thin-down float-right pr-2 search-cate-dd-icon"></span>
                                 <div class="search-by-list z-top">
                                     <p class="p-0 m-0">Tất cả</p>
                                     <p class="p-0 m-0">Loại sản phẩm</p>
@@ -60,7 +60,27 @@
                         </div>
                     </div>
                     <div class="cell-3">
-                        CART , USER INFO
+                        <div class="shopping-cart-wrapper float-left">
+                            <div class="shopping-cart  pt-1 pl-2 pr-2 mr-3 float-right ">
+                                <span class="icon mif-cart fg-white"></span>
+                                <span class="badge bg-green fg-white">4</span>
+                            </div>
+                        </div>
+                        <div class="user-info float-right">
+                            <img height="30px" src="<?php echo ROOTURL?>/public/img/noavatar.jpg"/>
+                            <span class="vc">you name</span>
+                            <span style="padding-top:1.5px !important;" class="user-dd-icon ml-1 mif-chevron-thin-down float-right"></span>
+                            <div class="user-info-dropdown z-top">
+                                <p class="p-2 text-center m--0 ">
+                                    Thông tin
+                                </p>
+                                <p class="p-2 text-center m-0 ">
+                                    Giỏ hàng</p>
+                                <p class="p-2 text-center m-0  logout">
+                                    Đăng xuất
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

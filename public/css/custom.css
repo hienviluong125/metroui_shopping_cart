@@ -58,9 +58,11 @@ body{
     background:rgb(245, 245, 245);
 }
 .main-menu-wrapper{
-    margin-top:90px !important;
+    margin-top:90px ;
     z-index:5 !important;
-  
+}
+.login-register-menu-wrapper{
+    margin-top:0px !important;
 }
 .main-menu{
    
@@ -254,6 +256,9 @@ color:#f80ba9;
     border-top:none !important; 
     z-index:10 !important;
 }
+.search-by > .cate{
+    font-size: 85% !important;
+}
 .search-by-list > .selected-cate{
     display:none;
 }
@@ -411,4 +416,58 @@ color:#f80ba9;
 
 .hot-selling{
     border-top:2px solid #07518E !important;
+}
+
+.user-info > img{
+  /* //  display:block; */
+   /* // margin:auto; */
+    border-radius: 50%;
+}
+.user-info{
+    width:50%;
+    position: relative;
+    margin-top:12px;
+   /* // line-height:30px; */
+}
+.shopping-cart-wrapper{
+    width:50%;
+    /* text-align: center !important; */
+   
+    
+}
+.shopping-cart{
+    display: block;
+    width:33px;
+    position: relative;
+    margin:auto;
+    height:30px;
+    background:#07518E;
+    margin-top:12px;
+    border-radius: 50%;
+}
+
+.user-info-dropdown{
+    display:none;
+   
+    position: absolute;
+    width:100%;
+    margin:0 !important;
+    padding: 0 !important;
+    background:white;
+    font-size:90%;
+    left:1.5%;
+    top:120%;
+  
+    border-radius: 4px;
+    z-index:10 !important;
+}
+.user-info-dropdown > p:hover{
+    background:rgb(238, 238, 238);
+    cursor: pointer;
+}
+.user-dd-icon:hover,.search-cate-dd-icon:hover{
+    cursor: pointer !important;
+}
+.logout{
+    border-top:1.2px solid rgb(201, 201, 201) !important;
 }

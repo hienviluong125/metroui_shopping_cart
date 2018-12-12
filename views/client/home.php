@@ -21,7 +21,31 @@
 
         </div>
 
-
+        <div class="slogan ml-5 mr-1">
+            <div class="row">
+                <div style="background:rgb(235, 235, 235);" class="pb-3 cell-4 text-center">
+                    <span class="mif-truck  mif-5x"></span>
+                    <p>
+                    Giao hàng nhanh chóng, miễn phí<br>
+                    mọi lúc mọi nơi
+                    </p>
+                </div>
+                <div style="background:rgb(235, 235, 235);" class="pb-3 cell-4 text-center">
+                    <span class="mif-laptop  mif-5x"></span>
+                    <p>
+                    Thiết bị hiện đại, chất lượng đầy đủ
+                    <br>
+                    nhu cầu thị trường
+                    </p>
+                </div>
+                <div style="background:rgb(235, 235, 235);" class="pb-3 cell-4 text-center">
+                    <span class="mif-users  mif-5x"></span>
+                    <p>
+                    Đội ngũ hỗ trợ nhiệt tình<br> chuyên nghiệp
+                    </p>
+                </div>
+            </div>
+        </div>
 
         <div class="products latest ml-2 mt-10 pt-7">
             <div class="arrow arrow-orange">
