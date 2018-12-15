@@ -1,10 +1,10 @@
 <?php
 
     class users{
-        private $Provider;
+        private $db;
         
         public function __construct(){
-            $this->Provider = new Database();
+            $this->db = new Database();
         }
         
         public function getData(){
@@ -12,14 +12,56 @@
         }
 
         public function register($param){
-            // $query = "INSERT INTO users (username,password,fullname,email) VALUES(:username,:password,:fullname,:email)";
-            // $this->Provider->prepare($query);
-            // $this->Provider->bindValue(':username', $param['username']);
-            // $this->Provider->bindValue(':password', $param['password']);
-            // $this->Provider->bindValue(':fullname', $param['fullname']);
-            // $this->Provider->bindValue(':email', $param['email']);
-            // $executeRs = $this->Provider->execute();
-            // echo ($executeRs);
+            if($param['password'] != $param['passwordConfirm']){
+                return false;
+            }
+            else{
+                $hash = md5($param['password']);
+                $query = 
+                "INSERT INTO users (username,password,fullname,email) 
+                VALUES(:username,:password,:fullname,:email)";
+                $this->db->prepare($query);
+                $this->db->bindValue(':username',$param['username'],'string');
+                $this->db->bindValue(':password',$hash,'string');
+                $this->db->bindValue(':fullname',$param['fullname'],'string');
+                $this->db->bindValue(':email',$param['email'],'string');
+                $isSuccess = $this->db->execute();
+                if($isSuccess){
+                    return true;
+                }else{
+                    return false;
+                }
+            }
+          
         }
+
+        public function login($param){
+            // -1 : username no exist, 0 : password no correct, 1 : login success
+            $query = "select * from users where users.username = :username";
+            $this->db->prepare($query);
+            $this->db->bindValue(':username',$param['username'],'string');
+            $this->db->execute();
+            $user = $this->db->fetchOne();
+            if(isset($user) && !empty($user) ){
+               //if exist user
+                //check correct password
+                $hash = md5($param['password']);
+                if($user->password == $hash){
+                    $userStorage = [
+                        'username'=>$user->username,
+                        'role'=>$user->role
+                    ];
+                    createSession('user',$userStorage);
+                    return 1;
+                }else{
+                    return 0;
+                }
+            }else{
+                return -1;
+            }
+        }
+
+
+
     }
 

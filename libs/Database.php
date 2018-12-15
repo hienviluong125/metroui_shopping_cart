@@ -39,7 +39,6 @@
         }
 
         public function fetchOne(){
-            $this->stmt->execute();
             $result = $this->stmt->fetch(PDO::FETCH_OBJ);
             return $result;
         }

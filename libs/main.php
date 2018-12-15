@@ -11,10 +11,11 @@
             $siteType = '';
             
             if($url[0] == 'dashboard'){
+                authentication();
                 array_splice($url,0,1);
                 $siteType = 'dashboard';
             }
-
+            
             if(file_exists('controllers/' . $siteType . '/' .$url[0] . '.php' )){
                require_once('controllers/' . $siteType . '/' . $url[0] . '.php' );
                $this->currentController = new $url[0];
