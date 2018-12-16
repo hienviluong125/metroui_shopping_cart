@@ -14,17 +14,26 @@
     }
 
     function getSession($key){
-        return $_SESSION[$key];
+        if(isset($_SESSION[$key])){
+            return $_SESSION[$key];
+        }else{
+            return null;
+        }
+        
     }
 
     function authentication(){
-        if(isset($_SESSION['user']) && !empty($_SESSION['user'])){
-            if($_SESSION['user']['role'] != 'admin'){
-                // header('Location: '. ROOTURL . '/home');
-                echo("<br><br><br><br><br><br><br><br><h1>Đã đăng nhập và là member</h1>");
+        
+    }
 
+    function authorization(){
+        if(isset($_SESSION['user'])){
+            if($_SESSION['user']['role'] != 'admin'){
+                header('Location: '. ROOTURL . '/home');
             }
+        }else{
+           header('Location: '. ROOTURL . '/user/login');
         }
-        //header('Location: '. ROOTURL . '/user/login');
+       
     }
 ?>

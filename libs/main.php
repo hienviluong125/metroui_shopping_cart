@@ -11,7 +11,7 @@
             $siteType = '';
             
             if($url[0] == 'dashboard'){
-                authentication();
+               // authentication();
                 array_splice($url,0,1);
                 $siteType = 'dashboard';
             }
@@ -20,12 +20,22 @@
                require_once('controllers/' . $siteType . '/' . $url[0] . '.php' );
                $this->currentController = new $url[0];
                array_splice($url,0,1);
+            }else{
+                echo ("Error");
+                exit();
             }
             
-            if(isset($url[0]) && method_exists($this->currentController,$url[0])){
+            if(isset($url[0])){
                 $this->currentMethod = $url[0];
-                array_splice($url,0,1);
+                if(method_exists($this->currentController,$this->currentMethod)){
+                    array_splice($url,0,1);
+                }else{
+                    echo ("Error");
+                    exit();
+                }
+               
             }
+        
     
            if(count($url) > 0){
                 $this->params = $url;

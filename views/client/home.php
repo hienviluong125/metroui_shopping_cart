@@ -12,25 +12,22 @@
                         <div class="image">
                             <img src="public/img/adsense2.png" height="300px" />
                         </div>
-
                     </div>
                 </div>
                 <span class="prev mif-chevron-left mif-5x fg-white"></span>
                 <span class="next mif-chevron-right mif-5x fg-white"></span>
             </div>
-
         </div>
-
         <div class="slogan ml-5 mr-1">
             <div class="row">
-                <div style="background:rgb(235, 235, 235);" class="pb-3 cell-4 text-center">
+                <div style="background:rgb(245, 245, 245);" class="pb-3 cell-4 text-center">
                     <span class="mif-truck  mif-5x"></span>
                     <p>
                     Giao hàng nhanh chóng, miễn phí<br>
                     mọi lúc mọi nơi
                     </p>
                 </div>
-                <div style="background:rgb(235, 235, 235);" class="pb-3 cell-4 text-center">
+                <div style="background:rgb(245, 245, 245);" class="pb-3 cell-4 text-center">
                     <span class="mif-laptop  mif-5x"></span>
                     <p>
                     Thiết bị hiện đại, chất lượng đầy đủ
@@ -38,7 +35,7 @@
                     nhu cầu thị trường
                     </p>
                 </div>
-                <div style="background:rgb(235, 235, 235);" class="pb-3 cell-4 text-center">
+                <div style="background:rgb(245, 245, 245);" class="pb-3 cell-4 text-center">
                     <span class="mif-users  mif-5x"></span>
                     <p>
                     Đội ngũ hỗ trợ nhiệt tình<br> chuyên nghiệp
@@ -46,7 +43,6 @@
                 </div>
             </div>
         </div>
-
         <div class="products latest ml-2 mt-10 pt-7">
             <div class="arrow arrow-orange">
                 <div class="inner-arrow bg-orange ">
@@ -70,19 +66,15 @@
                             <button class="button border-btn dark float-left mr-2">
                                 <span class="mif-eye"></span>&ensp;Chi tiết
                             </button>
-                            <button class="button border-btn success float-left ">
+                            <button class="button add-to-cart border-btn success float-left ">
                                 <span class="mif-cart"></span>&ensp;Mua ngay
                             </button>
                         </div>
                     </div>
                 </div>
                 <?php }?>
-
-
             </div>
-
         </div>
-
          <div class="products top-views ml-2 mt-10 pt-7">
             <div class="arrow arrow-lighten-grey">
                 <div class="inner-arrow bg-lighten-grey ">
@@ -106,20 +98,15 @@
                             <button class="button border-btn dark float-left mr-2">
                                 <span class="mif-eye"></span>&ensp;Chi tiết
                             </button>
-                            <button class="button border-btn success float-left ">
+                            <button class="button add-to-cart border-btn success float-left ">
                                 <span class="mif-cart"></span>&ensp;Mua ngay
                             </button>
                         </div>
                     </div>
                 </div>
                 <?php }?>
-
-
             </div>
-
         </div>
-
-
          <div class="products hot-selling ml-2 mt-10 pt-7">
             <div class="arrow arrow-bold-blue">
                 <div class="inner-arrow bg-bold-blue ">
@@ -143,23 +130,14 @@
                             <button class="button border-btn dark float-left mr-2">
                                 <span class="mif-eye"></span>&ensp;Chi tiết
                             </button>
-                            <button class="button border-btn success float-left ">
+                            <button class="button add-to-cart border-btn success float-left ">
                                 <span class="mif-cart"></span>&ensp;Mua ngay
                             </button>
                         </div>
                     </div>
                 </div>
                 <?php }?>
-
-
             </div>
-
-        </div>
-
-
-
-
-         
-
         </div>
     </div>
+</div>

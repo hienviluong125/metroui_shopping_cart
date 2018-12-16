@@ -3,27 +3,38 @@
         private $model;
         public function __construct(){
             $this->model = $this->initModel('products');
-        }
-
-        public function productList(){
-            $data = [
-                'products' => $this->model->getAllProducts()
-            ];
-            $this->renderview('product/list',$data);
-        }
-        //xem tất cả sản phẩm thuộc loại sản phẩm ?
-        public function cate($cateName){
-            echo("Coi tất cả sản phẩm của " . $cateName);
-        }
-
-         //xem tất cả sản phẩm thuộc nhà sản xuất ( hiệu ) ?
-         public function brand($brandName){        
-            $data = [
-                'products' => $this->model->getAllProducts()
-            ];
+            $this->categoryModel = $this->initModel('categories');
+            $this->brandModel = $this->initModel('brands');
             
-           $this->renderView('products',$data);
-    
-         }
+        }
 
+        
+
+        public function show($field,$link_name,$page){
+            if($field == 'category'){
+                $result = $this->model->getProductByCateLinkname($link_name,$page);
+                $data = [
+                    'allCategories' => $this->categoryModel->getAllCategories(0)['categories'],
+                    'allBrands' => $this->brandModel->getAllBrands(0)['brands'],
+                    'area'=>'Trang chủ / Sản phẩm / Loại / ',
+                    'showWith'=>$field,
+                    'products' => $result['products'],
+                    'current'=>$result['current']
+                ];
+                $this->renderview('product/list',$data);
+            }
+            else if($field =='brand'){
+                $result = $this->model->getProductByBrandLinkname($link_name,$page);
+                $data = [
+                    'allCategories' => $this->categoryModel->getAllCategories(0)['categories'],
+                    'allBrands' => $this->brandModel->getAllBrands(0)['brands'],
+                    'area'=>'Trang chủ / Sản phẩm / Nhà sản xuất / ',
+                    'showWith'=>$field,
+                    'products' => $result['products'],
+                    'current'=>$result['current']
+                ];
+                $this->renderview('product/list',$data);
+            }
+        }
+        
     }

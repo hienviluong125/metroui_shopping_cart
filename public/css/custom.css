@@ -431,6 +431,7 @@ color:#f80ba9;
 }
 .shopping-cart-wrapper{
     width:50%;
+    position: relative;
     /* text-align: center !important; */
    
     
@@ -470,4 +471,27 @@ color:#f80ba9;
 }
 .logout{
     border-top:1.2px solid rgb(201, 201, 201) !important;
+}
+.current-area{
+    font-size:150% !important;
+}
+
+.custom-toast{
+    margin-right:220px !important;
+}
+.cart-notify-area{
+    display: none;
+    position: absolute;
+    width:170%;
+    top:120%;
+    right:0%;
+    height:85px;
+    border:1.3px solid rgb(226, 226, 226);
+    border-radius: 6px;
+}
+.check-icon{
+    border-radius: 50% !important;
+    width:25px;
+    height: 25px;
+    padding-top:1px !important;
 }

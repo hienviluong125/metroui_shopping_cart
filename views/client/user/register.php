@@ -1,9 +1,13 @@
+<br><br><br><br>
 <?php 
+
+
     $flash = getSession('flash');
     if(isset($flash)){
         echo '<br><br><h1>'. $flash . '</h1>';
+        clearSession('flash');
     }
-    clearSession('flash');
+    
 ?>
 <div class="container">
         <div class="grid">

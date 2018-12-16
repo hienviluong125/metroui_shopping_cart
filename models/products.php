@@ -89,8 +89,49 @@
         }
 
         public function getProductDetailById(){
-            //map with list
+          
+        }
 
+        public function getProductByCateLinkname($link_name,$page){
+            $offset = ($page-1)*12;
+            $limit = 12;
+            $result = [];
+            $query = 
+                "select p.*,c.name as currentCate from products p, categories c
+                where p.category = c.id and c.link_name = :link_name
+                limit :limit offset :offset";
+            $this->db->prepare($query);
+            $this->db->bindValue(':link_name',$link_name,'string');
+            $this->db->bindValue(':limit',$limit,'int');
+            $this->db->bindValue(':offset',$offset,'int');
+            if($this->db->execute()){
+                $result =$this->db->fetchAll();
+                return [
+                    'products'=>$result,
+                    'current'=>$result[0]->currentCate
+                ];
+            }
+        }
+
+        public function getProductByBrandLinkname($link_name,$page){
+            $offset = ($page-1)*12;
+            $limit = 12;
+            $result = [];
+            $query = 
+                "select p.*,b.name as currentBrand from products p, brands b
+                where p.brand = b.id and b.link_name = :link_name
+                limit :limit offset :offset";
+            $this->db->prepare($query);
+            $this->db->bindValue(':link_name',$link_name,'string');
+            $this->db->bindValue(':limit',$limit,'int');
+            $this->db->bindValue(':offset',$offset,'int');
+            if($this->db->execute()){
+                $result =$this->db->fetchAll();
+                return [
+                    'products'=>$result,
+                    'current'=>$result[0]->currentBrand
+                ];
+            }
         }
 
 

@@ -2,6 +2,7 @@
     class category extends BaseController {
         private $model;
         public function __construct(){
+            authorization();
             $this->model = $this->initModel('categories');
         }
 

@@ -2,6 +2,7 @@
     class product extends BaseController {
         private $model;
         public function __construct(){
+            authorization();
             $this->model = $this->initModel('products');
         }
 

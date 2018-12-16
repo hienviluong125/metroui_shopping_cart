@@ -10,11 +10,6 @@
         }
 
         public function index(){
-          //  $
- 
-            
-          
-            
             $data = [
                 'allCategories' => $this->categoryModel->getAllCategories(0)['categories'],
                 'allBrands' => $this->brandModel->getAllBrands(0)['brands'],

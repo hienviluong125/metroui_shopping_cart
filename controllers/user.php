@@ -57,4 +57,9 @@
             $this->renderView('user/login',$data);
         }
     }
+
+    public function logout(){
+        clearAllSession();
+        header('Location: '. ROOTURL . '/user/login');
+    }
 }

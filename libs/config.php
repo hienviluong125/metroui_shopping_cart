@@ -6,7 +6,7 @@
     define("DATABASE","shopping_cart");
 
     define("ROOTFOLDER",dirname(dirname(__FILE__)) );
-    define("ROOTURL","http://localhost:7080/metroui_shopping_cart");
+    define("ROOTURL","http://localhost:8080/metroui_shopping_cart");
 
 
     
