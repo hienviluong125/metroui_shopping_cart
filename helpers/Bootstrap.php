@@ -1,5 +1,6 @@
 <?php 
     require_once('helpers/Session.php');
+    require_once('helpers/utf8_convert.php');
     require_once('libs/Config.php');
     require_once('libs/Database.php');
     require_once('libs/BaseController.php');

@@ -67,6 +67,12 @@ body{
 .main-menu{
    
 }
+.edit-close-btn{
+    background:red;
+}
+.edit-close-btn:hover{
+    cursor: pointer !important;
+}
 
 
 
@@ -494,4 +500,7 @@ color:#f80ba9;
     width:25px;
     height: 25px;
     padding-top:1px !important;
+}
+.mif-cancel:hover{
+    cursor: pointer;
 }

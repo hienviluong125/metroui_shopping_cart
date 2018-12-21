@@ -16,15 +16,23 @@
                     'fullname' => $_POST['fullname'],
                     'email' => $_POST['email']
                 ];
-
-                $isSuccess = $this->model->register($user);
-                if($isSuccess){
-                    createSession('flash','Đăng ký thành công');
-                    header('Location: '.'login');
-                }else{
-                    createSession('flash','Đăng ký thất bại');
-                    header('Location: '.'register');
-                }
+                $captcha="";
+                if(isset($_POST['g-recaptcha-response'])){
+                    $captcha = $_POST['g-recaptcha-response'];
+                 }
+                 if(!$captcha){
+                     echo("Nhập captcha dzo");
+                 }
+                $response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=6LfBIYMUAAAAAI_UvAITNvk04QLq87aZl_a5q2T-&response=".$captcha."&remoteip=".$_SERVER['REMOTE_ADDR']);
+                print_r($response);
+               // $isSuccess = $this->model->register($user);
+               // if($isSuccess){
+                //    createSession('flash','Đăng ký thành công');
+                //    header('Location: '.'login');
+               // }else{
+               //     createSession('flash','Đăng ký thất bại');
+               //     header('Location: '.'register');
+               // }
             }else{
                 $data = [];
                 $this->renderView('user/register',$data);

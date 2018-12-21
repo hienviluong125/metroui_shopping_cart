@@ -18,9 +18,9 @@
                                     <p class="m-0 p-0 fg-red text-medium"><?php echo  number_format($product->price*1000)?>₫</h5>
                                 </div>
                                 <div class="cell-12 mb-2">
-                                    <button class="button border-btn dark float-left mr-2">
+                                    <a href="<?php echo ROOTURL . '/product/detail/' . $product->link_name?>" class="button border-btn dark float-left mr-2">
                                         <span class="mif-eye"></span>&ensp;Chi tiết
-                                    </button>
+                                    </a>
                                     <button class="button border-btn success float-left ">
                                         <span class="mif-cart"></span>&ensp;Mua ngay
                                     </button>

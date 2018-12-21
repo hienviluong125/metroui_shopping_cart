@@ -1,23 +1,23 @@
-<aside class="sidebar pos-absolute z-2" data-role="sidebar" data-toggle="#sidebar-toggle-3" id="sb3" data-shift=".shifted-content">
-        <div class="sidebar-header">
-            <div class="avatar">
-                <!-- <img data-role="gravatar" data-email="sergey@pimenov.com.ua"> -->
-            </div>
+<aside style="height:700px !important;"
+       class="sidebar pos-absolute z-2"
+       data-role="sidebar"
+       data-toggle="#sidebar-toggle-4"
+       id="sb4"
+       data-shift=".shifted-content-2"
+       data-static-shift=".shifted-content-2"
+       data-static="md">
+    <div class="sidebar-header" data-image="images/sb-bg-1.jpg">
+        <div class="avatar">
+            <img data-role="gravatar" data-email="sergey@pimenov.com.ua">
         </div>
-        <ul class="sidebar-menu">
-            <li>1</li>
-            <li>
-                2
-            </li>
-            <li>3</li>
-            <li>4</li>
-            <li>5</li>
-        </ul>
-    </aside>
-    <div class="shifted-content h-100 p-ab">
-        <div class="app-bar pos-absolute bg-red z-1" data-role="appbar">
-            <button class="app-bar-item c-pointer" id="sidebar-toggle-3">
-                <span class="mif-menu fg-white"></span>
-            </button>
-        </div>
-          <div class="h-100 p-4">
+        <span class="title fg-white">Metro 4 Components Library</span>
+        <span class="subtitle fg-white"> 2018 © Sergey Pimenov</span>
+    </div>
+    <ul class="sidebar-menu">
+        <li><a><span class="mif-home icon"></span>Home</a></li>
+        <li><a><span class="mif-books icon"></span>Guide</a></li>
+        <li><a><span class="mif-files-empty icon"></span>Examples</a></li>
+        <li class="divider"></li>
+        <li><a><span class="mif-images icon"></span>Icons</a></li>
+    </ul>
+</aside>

@@ -1,5 +1,7 @@
 <?php
 
+// anhdaidien => anhdaidien12/17/2018.jpg
+// Kha học tự nhiên => khoa-hoc-tu-nhien
 function utf8convert($str) {
 
     if(!$str) return false;

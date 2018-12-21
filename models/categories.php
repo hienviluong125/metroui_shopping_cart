@@ -34,7 +34,7 @@
 
         //lấy tất cả loại
         public function getAllCategories($page){
-            $rowPersPage = 7;
+            $rowPersPage = 10;
             $count = 0;
             $offset = ($page-1) * $rowPersPage;
             $limit = ($page * $rowPersPage) - 1; 
@@ -49,10 +49,7 @@
                     $result = array_slice($result, $offset, $limit+1); 
                 }
             }
-            return [
-                'categories' => $result,
-                'count' => $count
-            ];
+            return $result;
         }
 
         //xóa 1 loại theo id

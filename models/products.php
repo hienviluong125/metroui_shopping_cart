@@ -88,9 +88,7 @@
             }
         }
 
-        public function getProductDetailById(){
-          
-        }
+      
 
         public function getProductByCateLinkname($link_name,$page){
             $offset = ($page-1)*12;
@@ -131,6 +129,36 @@
                     'products'=>$result,
                     'current'=>$result[0]->currentBrand
                 ];
+            }
+        }
+
+        public function getProductsImageList($link_name){
+            $query = 
+            "select * from products_images pi, products p
+             where pi.product_id = p.id
+             and p.link_name = :link_name";
+             $this->db->prepare($query);
+             $this->db->bindValue(':link_name',$link_name,'string');
+             if($this->db->execute()){
+                 return $this->db->fetchAll();
+             }
+             else{
+                 return [];
+             }
+        }
+
+        public function getDetailProductByLinkName($link_name){
+            $query = 
+                "select p.*,c.name as cateName, b.name as brandName from products p ,categories c ,brands b
+                 where p.category = c.id and p.brand = b.id
+                 and p.link_name = :link_name";     
+            $this->db->prepare($query);
+            $this->db->bindValue(':link_name',$link_name,'string');
+            if($this->db->execute()){
+                return $this->db->fetchOne();
+            }
+            else{
+                return [];
             }
         }
 

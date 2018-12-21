@@ -1,10 +1,10 @@
 
 function addToCart() {
-    $('.add-to-cart').on('click',function(){
+    $('.add-to-cart').on('click', function () {
         $('.cart-notify-area').fadeIn(300);
     });
 
-    $('.cart-notify-area').find('.mif-cancel').on('click',function(){
+    $('.cart-notify-area').find('.mif-cancel').on('click', function () {
         $(this).parent().fadeOut(200);
     });
 }
@@ -63,21 +63,36 @@ $(document).ready(function () {
     filterCurrentCate();
     selectCate();
     toggleUserInfo();
-    
+
     sliderInit();
-  
+
+    toggleEdit();
 
 
-
-
-
-
-    // mapKeysOfTable('xxx');
 });
 
 
-function toggleUserInfo(){
-    $('.user-dd-icon').on('click',function(){
+function toggleEdit() {
+    let currentState = $('.category-manager').data('state');
+    $('.edit-toggle-btn').on('click', function () {
+        if (currentState === 'adding') {
+            $('.adding').css('display', 'none');
+            $('.editing').css('display', 'block');
+            $('.category-manager').data('state', 'editing');
+        }
+    });
+
+    $('.editing').on('click', 'span.mif-cancel', function () {
+        $('.adding').css('display', 'block');
+        $('.editing').css('display', 'none');
+        $('.category-manager').data('state', 'adding');
+    });
+
+}
+
+
+function toggleUserInfo() {
+    $('.user-dd-icon').on('click', function () {
         $('.user-info-dropdown').slideToggle(250);
     })
 

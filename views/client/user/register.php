@@ -35,7 +35,10 @@
                         <div class="form-group">
                             <input name="email" type="email" placeholder="Email" />
                         </div>
-
+                        <div class="form-group mt-4">
+                            <div class="g-recaptcha" style="width:100%" data-sitekey="6LfBIYMUAAAAAOj48phCAzAINpdtysSvqiSopeDX"></div>
+                        </div>
+                        
                         <div class="form-group">
 
                             <button type="submit" class="my-btn bg-custom-blue button rounded cell-12">

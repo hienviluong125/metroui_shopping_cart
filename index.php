@@ -21,6 +21,7 @@
     ?>
 
     <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.11/lodash.min.js"></script>
+    <script src='https://www.google.com/recaptcha/api.js?hl=vi'></script>
     <script src="<?php echo ROOTURL; ?>/public/js/jquery-3.3.1.min.js"></script>
     <script src="<?php echo ROOTURL; ?>/public/js/metro.min.js"></script>
     <script src="<?php echo ROOTURL; ?>/public/js/categories.js"></script>
