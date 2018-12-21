@@ -1,10 +1,10 @@
 <!-- <?php $url = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";?> -->
-<div class="container">
-    <div class="products main-container ml-2 pt-7" style="margin-top:120px !important;">
+<div class="container main-container">
+<p class="ml-2 current-area cell-12"><?php echo($data['area'] . $data['current']);?></p>
+    <div class="products  ml-2 pt-7" >
              <div class="row">
                 <div class="cell-12">
                     <div class="row">
-                        <p class="ml-2 current-area cell-12"><?php echo($data['area'] . $data['current']);?></p>
                         <?php foreach($data['products'] as $product){?>
                         <div class="cell-3">
                             <div class="row product m-2">

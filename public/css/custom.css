@@ -504,3 +504,74 @@ color:#f80ba9;
 .mif-cancel:hover{
     cursor: pointer;
 }
+.main-container{
+    margin-top:150px !important;
+    min-height:800px !important;
+}
+
+
+
+.multiple-slider{
+    position: relative;
+    min-width:1140px !important;
+    width:1140px !important;
+}
+.multiple-slider-wrapper{
+    position: relative;
+    width:1140px !important;
+    height:auto;
+    float: left;
+}
+.my-multiple-slider{
+    width:1140px;
+    height:auto;
+    overflow: hidden;
+    position: relative;
+}
+.my-multiple-slider > .sliders{
+    width:2280px;
+    display: block;
+}
+
+
+.single-item{
+    width:190px !important;
+    position: relative !important;
+    display:block;
+}
+.single-item > img{
+    width:190px !important;
+
+}
+.single-item-card{
+    position: absolute !important;
+   
+    width:100%;
+    bottom: -100%;
+    background:black;
+    color:rgb(255, 255, 255);
+    text-align: center;
+    padding:5%;
+    height:40%;
+    opacity: 0.7 ;
+    z-index:3;
+}
+.prev-multiple{
+    position: absolute;
+    z-index:1;
+    left:-2.5% !important;
+    top:41%;
+}
+.next-multiple{
+    position: absolute;
+    z-index:1;
+    right:-2.5% !important;
+    top:41%;
+}
+.prev-multiple:hover{
+    cursor: pointer;
+}
+
+.next-multiple:hover{
+    cursor: pointer;
+}

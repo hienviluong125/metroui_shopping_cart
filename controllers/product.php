@@ -26,8 +26,8 @@
             else if($field =='brand'){
                 $result = $this->model->getProductByBrandLinkname($link_name,$page);
                 $data = [
-                    'allCategories' => $this->categoryModel->getAllCategories(0)['categories'],
-                    'allBrands' => $this->brandModel->getAllBrands(0)['brands'],
+                    'allCategories' => $this->categoryModel->getAllCategories(0),
+                    'allBrands' => $this->brandModel->getAllBrands(0),
                     'area'=>'Trang chủ / Sản phẩm / Nhà sản xuất / ',
                     'showWith'=>$field,
                     'products' => $result['products'],
@@ -38,12 +38,15 @@
         }
 
         public function detail($link_name){
-            $product = $this->model->getDetailProductByLinkName($link_name);
+            $productDetail = $this->model->getDetailProductByLinkName($link_name);
+            $productImageList = $this->model->getProductsImageList($link_name);
             $data = [
-               // 'productDetail'=> $product['productDetail'],
-               // 'imageList' => $product['imageList'] 
+                'allCategories' => $this->categoryModel->getAllCategories(0),
+                'allBrands' => $this->brandModel->getAllBrands(0)['brands'],
+                'productDetail'=> $productDetail,
+                'imageList' =>  $productImageList 
             ];
-           // $this->renderview('product/detail',$data);
+            $this->renderview('product/detail',$data);
         }
 
         

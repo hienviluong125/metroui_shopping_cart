@@ -1,9 +1,22 @@
-<div class="container" style="margin-top:150px !important;">
+<div class="container main-container">
     <div class="grid">
         <div class="row">
             <div class="cell-6">
-                <img src="https://product.hstatic.net/1000026716/product/gearvn-razer-blackwidow-x-chroma-gunmetal-5.png"
-                        class="fotorama__img" style="width: 554.869px; height: 537px; left: 0.0656743px; top: 0px;">
+                <div class="row">
+                    <div class="cell-12">
+                        <img src="<?php echo ROOTURL . '/public/img/' . $data['productDetail']->image?>" 
+                            class="fotorama__img" width="80%">
+                    </div>
+                    <div class="cell-3">
+                        <img src="<?php echo ROOTURL . '/public/img/' . $data['productDetail']->image?>" width="80%">
+                    </div>
+                    <?php foreach($data['imageList'] as $image){?>
+                        <div class="cell-3">
+                            <img src="<?php echo ROOTURL . '/public/img/' . $image->image?>" width="80%">
+                        </div>
+                    <?php } ?>
+                </div>
+               
             </div>
             <div class="cell-6">
                 <h1 class="text-normal"><?php echo $data['productDetail']->name; ?></h1>
@@ -18,15 +31,19 @@
 
                 <button class="button primary large rounded my-shop mt-3">Đặt Hàng</button>
             </div>
-            <div class="cell-12 image-list">
-                <img src="http://hstatic.net/716/1000026716/10/2016/8-10/gearvn-4.png" width="70%">
-                <img src="http://hstatic.net/716/1000026716/10/2016/8-10/gearvn-3.png" width="70%">
-                <img src="http://hstatic.net/716/1000026716/10/2016/8-10/gearvn-5.png" width="70%">
-            </div>
+            <!-- <div class="cell-6">
+                <div class="row">
+                   
+                </div>
+            </div> -->
+          
         </div>
     </div>
 </div>
-
+<!-- <p><?php echo $data['productDetail']->desceip?></p>
+            <div class="cell-12 image-list">
+                
+            </div> -->
     <!-- <div class="grid">
             <div class="tabs tabs-wrapper top tabs-expand">
 

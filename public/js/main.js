@@ -10,54 +10,66 @@ function addToCart() {
 }
 
 function sliderInit() {
-    function nextImage() {
-        var isAnimating = $('.sliders').data('animating');
+    function nextImage(selector) {
+        var slider = $('#' + selector).find('.sliders');
+        var isAnimating = slider.data('animating');
         if (!isAnimating) {
-            $('.sliders').data('animating', true);
-            let marginLeftAttr = $('.sliders').css('margin-left');
+            $(slider).data('animating', true);
+            let marginLeftAttr = $(slider).css('margin-left');
             let runTo = '-=840px';
             if (marginLeftAttr === '-1680px') {
                 runTo = '+=1680px';
             }
-            $('.sliders')
+            $(slider)
                 .animate({ 'margin-left': runTo },
                     500,
                     function () {
-                        $('.sliders').data('animating', false);
+                        $(slider).data('animating', false);
                     }
                 )
         }
     }
 
-    function prevImage() {
-        var isAnimating = $('.sliders').data('animating');
+    function prevImage(selector) {
+        var slider = $('#' + selector).find('.sliders');
+        var isAnimating = slider.data('animating');
         if (!isAnimating) {
-            $('.sliders').data('animating', true);
-            let marginLeftAttr = $('.sliders').css('margin-left');
+            $(slider).data('animating', true);
+            let marginLeftAttr = $(slider).css('margin-left');
             let runTo = '+=840px';
             if (marginLeftAttr === '0px') {
                 runTo = '-=1680px';
             }
-            $('.sliders')
+            $(slider)
                 .animate({ 'margin-left': runTo },
                     500,
                     function () {
-                        $('.sliders').data('animating', false);
+                        $(slider).data('animating', false);
                     }
                 )
         }
     }
 
+
     $('.prev').on('click', function () {
-        prevImage();
+        var className = $('#' + 'my-slider').attr('class');
+        if (className === 'single-slider') {
+            prevImage('my-slider');
+        }
+
     });
 
     $('.next').on('click', function () {
-        nextImage();
+        var className = $('#' + 'my-slider').attr('class');
+        if (className === 'single-slider') {
+            nextImage('my-slider');
+        }
+
     })
 }
 
 $(document).ready(function () {
+
     addToCart();
     toggleSearchCate();
     filterCurrentCate();
@@ -68,9 +80,59 @@ $(document).ready(function () {
 
     toggleEdit();
 
+    itemHover();
+
+    multiple_slider();
+
+
 
 });
 
+function multiple_slider() {
+    $('.prev-multiple').on('click', function () {
+        let id = $(this).parent().find('.my-multiple-slider').attr('id');
+
+        var isAnimating = $('#' + id).data('animating');
+        if (!isAnimating) {
+            $('#' + id).data('animating', true);
+            $('#' + id).find('.sliders').stop(true, true).animate({
+                'margin-left': '+=190px'
+            }, '200', function () {
+                $('#' + id).data('animating', false);
+            });
+        }
+
+    });
+    $('.next-multiple').on('click', function () {
+        // console.log(id);
+        let id = $(this).parent().find('.my-multiple-slider').attr('id');
+
+        var isAnimating = $('#' + id).data('animating');
+        if (!isAnimating) {
+            $('#' + id).data('animating', true);
+            $('#' + id).find('.sliders').stop(true, true).animate({
+                'margin-left': '-=190px'
+            }, '200', function () {
+                $('#' + id).data('animating', false);
+            });
+        }
+    });
+}
+
+function itemHover() {
+    $('.single-item')
+        .mouseenter(function () {
+            $(this).find('.single-item-card').stop(true, true).animate({
+                bottom: '0%'
+            }, '500', 'linear');
+        })
+        .mouseleave(function () {
+            $(this).find('.single-item-card').stop(true, true).animate({
+                bottom: '-100%'
+            }, '400', 'linear');
+
+        })
+}
 
 function toggleEdit() {
     let currentState = $('.category-manager').data('state');
