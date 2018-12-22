@@ -1,8 +1,6 @@
 <?php
-
     class categories {
         private $db;
-        
         public function __construct(){
             $this->db = new Database();
         }
@@ -49,7 +47,10 @@
                     $result = array_slice($result, $offset, $limit+1); 
                 }
             }
-            return $result;
+            return [
+                'categories' => $result,
+                'count' => $count
+            ];
         }
 
         //xóa 1 loại theo id
@@ -79,6 +80,8 @@
             }
             return $result;
         }
+
+        
     }
 
    

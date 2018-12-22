@@ -1,7 +1,7 @@
 <!-- <?php $url = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";?> -->
 <div class="container main-container">
 <p class="ml-2 current-area cell-12"><?php echo($data['area'] . $data['current']);?></p>
-    <div class="products  ml-2 pt-7" >
+    <div class="products ml-2 pt-7" >
              <div class="row">
                 <div class="cell-12">
                     <div class="row">
@@ -21,14 +21,14 @@
                                     <a href="<?php echo ROOTURL . '/product/detail/' . $product->link_name?>" class="button border-btn dark float-left mr-2">
                                         <span class="mif-eye"></span>&ensp;Chi tiết
                                     </a>
-                                    <button class="button border-btn success float-left ">
+                                    <button data-productid="<?php echo $product->id?>" class="button add-to-cart border-btn success float-left ">
                                         <span class="mif-cart"></span>&ensp;Mua ngay
                                     </button>
                                 </div>
                             </div>
                         </div>
                         <?php }?>
-                </div>
+                    </div>
                 
         </div>
      </div>

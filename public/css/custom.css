@@ -539,18 +539,21 @@ color:#f80ba9;
     position: relative;
 }
 .my-multiple-slider > .sliders{
-    width:2232px;
+    width:1860px;
     display: block;
 }
 
 
 .single-item{
     width:186px !important;
+    height:186px !important;
     position: relative !important;
     display:block;
 }
 .single-item > img{
-    width:186px !important;
+   display:block !important;
+   margin-left: auto;
+   margin-right: auto;
 
 }
 .single-item-card{
@@ -584,4 +587,13 @@ color:#f80ba9;
 
 .next-multiple:hover{
     cursor: pointer;
+}
+
+.copy-right{
+    margin-top:-16px !important;
+    background :rgb(0, 55, 97);
+}
+.the-same-container{
+    display:block !important;
+    margin:auto !important;
 }

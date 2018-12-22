@@ -44,13 +44,13 @@
             </div>
         </div>
         
-        <div class="products latest mt-5 pt-7">
+        <div class="products latest mt-10 pt-7">
             <div class="arrow arrow-orange" style="top:-9.5% !important;">
                 <div class="inner-arrow bg-orange ">
                     Sản phẩm mới
                 </div>
             </div>
-            <div class="container multiple-slider">
+            <div class="container the-same-container multiple-slider">
                 <div class="multiple-slider-wrapper">
                     <div id="slider_1" class="my-multiple-slider" data-animating="false">
                         <div class="sliders">
@@ -74,13 +74,53 @@
 
 
 
-        <div class="products hot-selling mt-5 pt-7">
-            <div class="arrow arrow-bold-blue" style="top:-9.5% !important;">
+        <div class="products hot-selling mt-10 pt-7">
+            <div class="arrow arrow-bold-blue" style="top:-2.7% !important;">
                 <div class="inner-arrow bg-bold-blue ">
+                    Bàn phím
+                </div>
+            </div>
+           
+            <div class="row">
+                <div class="cell-12">
+                    <div class="row">
+                        <?php foreach($data['keyBoards'] as $product){?>
+                        <div class="cell-3">
+                            <div class="row product m-2">
+                                <div class="cell-12 ">
+                                    <div class="product-img text-center">
+                                        <img src="<?php echo ROOTURL?>/public/img/<?php echo $product->image?>" style="height:137px !important;">
+                                    </div>
+                                </div>
+                                <div class="cell-12 mb-2">
+                                    <p class="m-0 p-0 text-left"><?php echo (substr($product->name,0,25) . '...')?></p>
+                                    <p class="m-0 p-0 fg-red text-medium"><?php echo  number_format($product->price*1000)?>₫</h5>
+                                </div>
+                                <div class="cell-12 mb-2">
+                                    <a href="<?php echo ROOTURL . '/product/detail/' . $product->link_name?>" class="button border-btn dark float-left mr-2">
+                                        <span class="mif-eye"></span>&ensp;Chi tiết
+                                    </a>
+                                    <button class="button add-to-cart border-btn success float-left ">
+                                        <span class="mif-cart"></span>&ensp;Mua ngay
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <?php }?>
+                    </div>
+                </div>
+            </div>
+            <a href="<?php echo ROOTURL . '/product/show/category/ban-phim/1'?>" style="text-decoration:none;" class="text-large float-right mr-3"><h4 class="fg-red">Xem thêm</h4></a>
+        </div>
+
+
+        <div class="products latest mt-10 pt-7">
+            <div class="arrow arrow-orange" style="top:-10.5% !important;">
+                <div class="inner-arrow bg-orange ">
                     Sản phẩm hot
                 </div>
             </div>
-            <div class="container multiple-slider">
+            <div class="container  the-same-container multiple-slider">
                 <div class="multiple-slider-wrapper">
                     <div id="slider_2" class="my-multiple-slider" data-animating="false">
                         <div class="sliders">
@@ -102,18 +142,97 @@
             </div>   
         </div>
 
+        <div class="products hot-selling mt-10 pt-7">
+            <div class="arrow arrow-bold-blue" style="top:-2.7% !important;">
+                <div class="inner-arrow bg-bold-blue ">
+                    Tai nghe
+                </div>
+            </div>
+           
+            <div class="row">
+                <div class="cell-12">
+                    <div class="row">
+                        <?php foreach($data['headPhones'] as $product){?>
+                        <div class="cell-3">
+                            <div class="row product m-2">
+                                <div class="cell-12 ">
+                                    <div class="product-img text-center">
+                                        <img src="<?php echo ROOTURL?>/public/img/<?php echo $product->image?>" style="height:137px !important;">
+                                    </div>
+                                </div>
+                                <div class="cell-12 mb-2">
+                                    <p class="m-0 p-0 text-left"><?php echo (substr($product->name,0,25) . '...')?></p>
+                                    <p class="m-0 p-0 fg-red text-medium"><?php echo  number_format($product->price*1000)?>₫</h5>
+                                </div>
+                                <div class="cell-12 mb-2">
+                                    <a href="<?php echo ROOTURL . '/product/detail/' . $product->link_name?>" class="button border-btn dark float-left mr-2">
+                                        <span class="mif-eye"></span>&ensp;Chi tiết
+                                    </a>
+                                    <button class="button add-to-cart border-btn success float-left ">
+                                        <span class="mif-cart"></span>&ensp;Mua ngay
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <?php }?>
+                    </div>
+                </div>
+            </div>
+            <a href="<?php echo ROOTURL . '/product/show/category/tai-nghe/1'?>" style="text-decoration:none;" class="text-large float-right mr-3"><h4 class="fg-red">Xem thêm</h4></a>
+        </div>
+
+
+
+        <div class="products hot-selling mt-10 pt-7">
+            <div class="arrow arrow-bold-blue" style="top:-2.7% !important;">
+                <div class="inner-arrow bg-bold-blue ">
+                    Chuột
+                </div>
+            </div>
+           
+            <div class="row">
+                <div class="cell-12">
+                    <div class="row">
+                        <?php foreach($data['mouses'] as $product){?>
+                        <div class="cell-3">
+                            <div class="row product m-2">
+                                <div class="cell-12 ">
+                                    <div class="product-img text-center">
+                                        <img src="<?php echo ROOTURL?>/public/img/<?php echo $product->image?>" style="height:137px !important;">
+                                    </div>
+                                </div>
+                                <div class="cell-12 mb-2">
+                                    <p class="m-0 p-0 text-left"><?php echo (substr($product->name,0,25) . '...')?></p>
+                                    <p class="m-0 p-0 fg-red text-medium"><?php echo  number_format($product->price*1000)?>₫</h5>
+                                </div>
+                                <div class="cell-12 mb-2">
+                                    <a href="<?php echo ROOTURL . '/product/detail/' . $product->link_name?>" class="button border-btn dark float-left mr-2">
+                                        <span class="mif-eye"></span>&ensp;Chi tiết
+                                    </a>
+                                    <button class="button add-to-cart border-btn success float-left ">
+                                        <span class="mif-cart"></span>&ensp;Mua ngay
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <?php }?>
+                    </div>
+                </div>
+            </div>
+            <a href="<?php echo ROOTURL . '/product/show/category/chuot/1'?>" style="text-decoration:none;" class="text-large float-right mr-3"><h4 class="fg-red">Xem thêm</h4></a>
+        </div>
 
         
 
 
 
-        <div class="products latest mt-5 pt-7">
+        <div class="products latest mt-10 pt-7">
             <div class="arrow arrow-orange" style="top:-9.5% !important;">
                 <div class="inner-arrow bg-orange ">
                     Nhiều lượt xem
                 </div>
             </div>
-            <div class="container multiple-slider">
+            <div class="container the-same-container multiple-slider">
                 <div class="multiple-slider-wrapper">
                     <div id="slider_3" class="my-multiple-slider" data-animating="false">
                         <div class="sliders">
@@ -136,5 +255,4 @@
         
     </div>
 </div>
-
 

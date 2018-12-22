@@ -1,4 +1,10 @@
-<?php  $user = getSession('user'); ?>
+<?php  $user = getSession('user'); 
+       $cart = getSession('cart');
+       $cartQty = 0;
+       if(isset($cart)){
+           $cartQty = count($cart);
+       }
+?>
 <div class="pos-fixed fixed-top header-menu-wrapper app-bar-wrapper z-top top-header-bg" data-role="appbar"
         data-expand-point="md">
         <header class="container pos-relative top-header-bg">
@@ -69,9 +75,9 @@
                         <div class="shopping-cart-wrapper float-left">
                             <div class="shopping-cart  pt-1 pl-2 pr-2 mr-3 float-right ">
                                 <span class="icon mif-cart fg-white"></span>
-                                <span class="badge bg-orange fg-white">0</span>
+                                <span class="badge shopping-badge bg-orange fg-white"><?php echo ($cartQty);?></span>
                             </div>
-                            <div class="bg-light p-2 cart-notify-area border border-radius-4">
+                            <div class="bg-light p-2 cart-notify-area border border-radius-4" data-show="false">
                             <div class="float-left text-center bg-green check-icon mr-2"> 
                                 <span class="text-center fg-white mif-checkmark"></span>
                             </div>

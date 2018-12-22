@@ -22,6 +22,37 @@
         
     }
 
+    function addCart($id,$qty){
+        $cartSession = getSession('cart');
+        if($cartSession){
+            $isAlreadyExist = false;
+            for($i = 0;$i<count($cartSession);$i++){
+                if($cartSession[$i]['id'] === $id){
+                    $cartSession[$i]['qty'] = $cartSession[$i]['qty'] + $qty;
+                    $isAlreadyExist = true;
+                    break;
+                }
+            }
+            if(!$isAlreadyExist){
+                $cartElement = [
+                    'id' => $id,
+                    'qty' => $qty
+                ];
+                $cartSession[] = $cartElement;
+            }
+            createSession('cart',$cartSession);
+        }else{
+            $cart = [];
+            $cartElement = [
+                'id' => $id,
+                'qty' => $qty
+            ];
+            $cart[] = $cartElement;
+            createSession('cart',$cart);
+        }
+    }
+
+
     function authentication(){
         
     }

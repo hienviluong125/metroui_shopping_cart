@@ -14,8 +14,8 @@
             if($field == 'category'){
                 $result = $this->model->getProductByCateLinkname($link_name,$page);
                 $data = [
-                    'allCategories' => $this->categoryModel->getAllCategories(0),
-                    'allBrands' => $this->brandModel->getAllBrands(0),
+                    'allCategories' => $this->categoryModel->getAllCategories(0)['categories'],
+                    'allBrands' => $this->brandModel->getAllBrands(0)['brands'],
                     'area'=>'Trang chủ / Sản phẩm / Loại / ',
                     'showWith'=>$field,
                     'products' => $result['products'],
@@ -26,8 +26,8 @@
             else if($field =='brand'){
                 $result = $this->model->getProductByBrandLinkname($link_name,$page);
                 $data = [
-                    'allCategories' => $this->categoryModel->getAllCategories(0),
-                    'allBrands' => $this->brandModel->getAllBrands(0),
+                    'allCategories' => $this->categoryModel->getAllCategories(0)['categories'],
+                    'allBrands' => $this->brandModel->getAllBrands(0)['brands'],
                     'area'=>'Trang chủ / Sản phẩm / Nhà sản xuất / ',
                     'showWith'=>$field,
                     'products' => $result['products'],
@@ -42,10 +42,12 @@
             $productDetail = $this->model->getDetailProductByLinkName($link_name);
             $productImageList = $this->model->getProductsImageList($link_name);
             $data = [
-                'allCategories' => $this->categoryModel->getAllCategories(0),
+                'allCategories' => $this->categoryModel->getAllCategories(0)['categories'],
                 'allBrands' => $this->brandModel->getAllBrands(0)['brands'],
                 'product'=> $productDetail,
-                'imageList' =>  $productImageList 
+                'imageList' =>  $productImageList ,
+                'area'=>'Trang chủ / Sản phẩm / ',
+                'latestProducts' =>  $this->model->getLatestProducts(10),
             ];
             $this->renderview('product/detail',$data);
         }

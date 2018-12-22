@@ -106,7 +106,7 @@
                 $result =$this->db->fetchAll();
                 return [
                     'products'=>$result,
-                    'current'=>$result[0]->currentCate
+                    'current'=>$result[0]->currentCate 
                 ];
             }
         }
@@ -163,12 +163,12 @@
             $this->db->bindValue(':link_name',$link_name,'string');
             if($this->db->execute()){
                 $productDetail = $this->db->fetchOne();
-                $sameCateProducts = $this->getSameCateProducts($productDetail->category);
-                $sameBrandProducts = $this->getSameBrandProducts($productDetail->brand);
+                $sameCateProducts = $this->getSameCateProducts($productDetail->id,$productDetail->category);
+                $sameBrandProducts = $this->getSameBrandProducts($productDetail->id,$productDetail->brand);
                 return [
                     'productDetail' => $productDetail,  
                     'sameCateProduct' => $sameCateProducts, 
-                    'sameBrandProduct' => $sameBrandProducts 
+                    'sameBrandProduct' => $sameBrandProducts,
                 ];
             }
             else{
@@ -176,12 +176,46 @@
             }
         }
 
-        public function getSameCateProducts($cate){
+        public function getSameCateProducts($productId,$cateId){
+            //expect 1 product
+            $query = "select * from products p where p.category = :cateId and p.id != :productId order by rand() limit 10";  
+            $this->db->prepare($query);
+            $this->db->bindValue(':cateId',$cateId,'int');
+            $this->db->bindValue(':productId',$productId,'int');
 
+            if($this->db->execute()){
+                return $this->db->fetchAll();
+            }else{
+                return [];
+            }
         }
 
-        public function getSameBrandProducts($brand){
+        public function getSameBrandProducts($productId,$brandId){
+            //expect 1 product
+            $query = "select * from products p where p.brand = :brandId and p.id != :productId order by rand() limit 10";  
+            $this->db->prepare($query);
+            $this->db->bindValue(':brandId',$brandId,'int');
+            $this->db->bindValue(':productId',$productId,'int');
+            if($this->db->execute()){
+                return $this->db->fetchAll();
+            }else{
+                return [];
+            }
+        }
 
+        public function getProductByCateName($cateName,$number){
+            $query = "select p.* from products p,categories c
+                        where p.category = c.id and c.name = :cateName
+                        limit :number
+                    ";     
+            $this->db->prepare($query);
+            $this->db->bindValue(':cateName',$cateName,'string');
+            $this->db->bindValue(':number',$number,'int');
+            if($this->db->execute()){
+                return $this->db->fetchAll();
+            }else{
+                return [];
+            }
         }
         
 

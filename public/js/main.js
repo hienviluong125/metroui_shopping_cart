@@ -1,13 +1,65 @@
 
-function addToCart() {
+function cartAddBtnEvent() {
+    let timer;
     $('.add-to-cart').on('click', function () {
-        $('.cart-notify-area').fadeIn(300);
-    });
+        $('.cart-notify-area').stop(true, true).fadeIn(300, function () {
+            clearTimeout(timer);
+            timer = setTimeout(function () {
+                $('.cart-notify-area').fadeOut(300);
+            }, 3000);
+        });
 
-    $('.cart-notify-area').find('.mif-cancel').on('click', function () {
-        $(this).parent().fadeOut(200);
+
+        let productid = $(this).data('productid');
+        let qty = $(this).data('qty');
+        qty = typeof qty === 'undefined' ? 1 : qty;
+
+        addTocart(productid, qty);
+
+
+        $('.cart-notify-area').find('.mif-cancel').on('click', function () {
+            $(this).parent().fadeOut(200);
+        });
     });
 }
+// $('.cart-notify-area').stop(true, true).fadeIn(300, function () {
+
+//     let isPopup = $(this).data('show');
+//     console.log(isPopup);
+//     // if (typeof isPopup !== 'undefined' && isPopup) {
+//     //     setTimeout(function () {
+//     //         $('.cart-notify-area').fadeOut(300, function () {
+//     //             $(this).data('show', false);
+//     //         });
+//     //     }, 3000);
+//     // }
+
+
+
+// });
+function addTocart(id, qty) {
+
+
+    let siteName = "metroui_shopping_cart";
+    let rootUrl = window.location.href;
+    let ajaxDir = rootUrl.indexOf(siteName);
+    ajaxDir = rootUrl.substring(0, ajaxDir + siteName.length) + '/ajax/php_service/';
+
+    $.ajax({
+        type: "POST",
+        url: ajaxDir + 'addCart.php',
+        data: JSON.stringify({ 'id': id, 'qty': qty }),
+        success: function (data) {
+            let cartData = JSON.parse(data);
+            $('.shopping-badge').html(cartData.length);
+        },
+        error: function (err) {
+            runToast('error', "Xóa thất bại", 1000, null);
+        }
+    });
+}
+
+
 
 function sliderInit() {
     function nextImage(selector) {
@@ -70,7 +122,7 @@ function sliderInit() {
 
 $(document).ready(function () {
 
-    addToCart();
+    cartAddBtnEvent();
     toggleSearchCate();
     filterCurrentCate();
     selectCate();
@@ -96,7 +148,7 @@ function multiple_slider() {
         if (!isAnimating) {
             $('#' + id).data('animating', true);
             $('#' + id).find('.sliders').stop(true, true).animate({
-                'margin-left': '+=190px'
+                'margin-left': '+=186px'
             }, '200', function () {
                 $('#' + id).data('animating', false);
             });
@@ -111,7 +163,7 @@ function multiple_slider() {
         if (!isAnimating) {
             $('#' + id).data('animating', true);
             $('#' + id).find('.sliders').stop(true, true).animate({
-                'margin-left': '-=190px'
+                'margin-left': '-=186px'
             }, '200', function () {
                 $('#' + id).data('animating', false);
             });
