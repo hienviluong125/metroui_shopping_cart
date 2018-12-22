@@ -44,7 +44,7 @@
             </div>
         </div>
         
-        <div class="products latest ml-2 mt-5 pt-7">
+        <div class="products latest mt-5 pt-7">
             <div class="arrow arrow-orange" style="top:-9.5% !important;">
                 <div class="inner-arrow bg-orange ">
                     Sản phẩm mới
@@ -56,7 +56,7 @@
                         <div class="sliders">
                             <?php foreach($data['latestProducts'] as $item){?>
                                 <div class="single-item float-left">
-                                    <img src="<?php echo ROOTURL . '/public/img/' . $item->image;?>" width="190px" height="190" />
+                                    <img src="<?php echo ROOTURL . '/public/img/' . $item->image;?>" width="186px" height="186px" />
                                     <div class="single-item-card">
                                         <p><?php  echo (substr($item->name,0,15) . '...')?></p>
                                         <p class="fg-red pb-2"><?php echo  number_format($item->price*1000) ?>₫</p>
@@ -73,19 +73,20 @@
         </div>
 
 
-        <div class="products latest ml-2 mt-5 pt-7">
-            <div class="arrow arrow-orange" style="top:-9.5% !important;">
-                <div class="inner-arrow bg-orange ">
-                    Sản phẩm mới
+
+        <div class="products hot-selling mt-5 pt-7">
+            <div class="arrow arrow-bold-blue" style="top:-9.5% !important;">
+                <div class="inner-arrow bg-bold-blue ">
+                    Sản phẩm hot
                 </div>
             </div>
             <div class="container multiple-slider">
                 <div class="multiple-slider-wrapper">
                     <div id="slider_2" class="my-multiple-slider" data-animating="false">
                         <div class="sliders">
-                            <?php foreach($data['latestProducts'] as $item){?>
+                            <?php foreach($data['hotSellingProducts'] as $item){?>
                                 <div class="single-item float-left">
-                                    <img src="<?php echo ROOTURL . '/public/img/' . $item->image;?>" width="190px" height="190" />
+                                    <img src="<?php echo ROOTURL . '/public/img/' . $item->image;?>" width="186px" height="186px" />
                                     <div class="single-item-card">
                                         <p><?php  echo (substr($item->name,0,15) . '...')?></p>
                                         <p class="fg-red pb-2"><?php echo  number_format($item->price*1000) ?>₫</p>
@@ -95,8 +96,8 @@
                             <?php } ?>
                         </div>
                     </div>
-                    <span class="prev prev-multiple mif-chevron-left mif-4x  cus-arrow-right-btn "></span>
-                    <span class="next next-multiple mif-chevron-right mif-4x cus-arrow-left-btn "></span>
+                    <span class="prev-multiple mif-chevron-left mif-4x  cus-arrow-right-btn "></span>
+                    <span class=" next-multiple mif-chevron-right mif-4x cus-arrow-left-btn "></span>
                 </div>
             </div>   
         </div>
@@ -106,70 +107,33 @@
 
 
 
-         <div class="products top-views ml-2 mt-10 pt-7">
-            <div class="arrow arrow-lighten-grey">
-                <div class="inner-arrow bg-lighten-grey ">
-                    Sản phẩm nhiều người quan tâm
+        <div class="products latest mt-5 pt-7">
+            <div class="arrow arrow-orange" style="top:-9.5% !important;">
+                <div class="inner-arrow bg-orange ">
+                    Nhiều lượt xem
                 </div>
             </div>
-            <div class="row">
-                <?php foreach($data['topViewsProducts'] as $product){?>
-                <div class="cell-3">
-                    <div class="row product m-2">
-                        <div class="cell-12 ">
-                            <div class="product-img text-center">
-                                <img src="<?php echo ROOTURL?>/public/img/<?php echo $product->image?>" style="height:137px !important;">
-                            </div>
-                        </div>
-                        <div class="cell-12 mb-2">
-                            <h5 class="text-left"><?php echo $product->name?></h5>
-                            <p class="fg-red text-medium"><?php echo  number_format($product->price*1000)?>₫</h5>
-                        </div>
-                        <div class="cell-12 mb-2">
-                            <button class="button border-btn dark float-left mr-2">
-                                <span class="mif-eye"></span>&ensp;Chi tiết
-                            </button>
-                            <button class="button add-to-cart border-btn success float-left ">
-                                <span class="mif-cart"></span>&ensp;Mua ngay
-                            </button>
+            <div class="container multiple-slider">
+                <div class="multiple-slider-wrapper">
+                    <div id="slider_3" class="my-multiple-slider" data-animating="false">
+                        <div class="sliders">
+                            <?php foreach($data['topViewsProducts'] as $item){?>
+                                <div class="single-item float-left">
+                                    <img src="<?php echo ROOTURL . '/public/img/' . $item->image;?>" width="186px" height="186px" />
+                                    <div class="single-item-card">
+                                        <p><?php  echo (substr($item->name,0,15) . '...')?></p>
+                                        <p class="fg-red pb-2"><?php echo  number_format($item->price*1000) ?>₫</p>
+                                        
+                                    </div>
+                                </div>
+                            <?php } ?>
                         </div>
                     </div>
+                    <span class="prev-multiple mif-chevron-left mif-4x  cus-arrow-right-btn "></span>
+                    <span class=" next-multiple mif-chevron-right mif-4x cus-arrow-left-btn "></span>
                 </div>
-                <?php }?>
-            </div>
-        </div>
-         <div class="products hot-selling ml-2 mt-10 pt-7">
-            <div class="arrow arrow-bold-blue">
-                <div class="inner-arrow bg-bold-blue ">
-                    Sản phẩm hot
-                </div>
-            </div>
-            <div class="row">
-                <?php foreach($data['hotSellingProducts'] as $product){?>
-                <div class="cell-3">
-                    <div class="row product m-2">
-                        <div class="cell-12 ">
-                            <div class="product-img text-center">
-                                <img src="<?php echo ROOTURL?>/public/img/<?php echo $product->image?>" style="height:137px !important;">
-                            </div>
-                        </div>
-                        <div class="cell-12 mb-2">
-                            <h5 class="text-left"><?php echo $product->name?></h5>
-                            <p class="fg-red text-medium"><?php echo  number_format($product->price*1000)?>₫</h5>
-                        </div>
-                        <div class="cell-12 mb-2">
-                            <button class="button border-btn dark float-left mr-2">
-                                <span class="mif-eye"></span>&ensp;Chi tiết
-                            </button>
-                            <button class="button add-to-cart border-btn success float-left ">
-                                <span class="mif-cart"></span>&ensp;Mua ngay
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <?php }?>
-            </div>
-        </div>
+            </div>   
+        
     </div>
 </div>
 

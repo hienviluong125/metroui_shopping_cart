@@ -38,12 +38,13 @@
         }
 
         public function detail($link_name){
+            $this->model->updateProductView($link_name);
             $productDetail = $this->model->getDetailProductByLinkName($link_name);
             $productImageList = $this->model->getProductsImageList($link_name);
             $data = [
                 'allCategories' => $this->categoryModel->getAllCategories(0),
                 'allBrands' => $this->brandModel->getAllBrands(0)['brands'],
-                'productDetail'=> $productDetail,
+                'product'=> $productDetail,
                 'imageList' =>  $productImageList 
             ];
             $this->renderview('product/detail',$data);

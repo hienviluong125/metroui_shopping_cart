@@ -147,6 +147,13 @@
              }
         }
 
+        public function updateProductView($link_name){
+            $query = "update products set views = views + 1 where link_name = :link_name";
+            $this->db->prepare($query);
+            $this->db->bindValue(':link_name',$link_name,'string');
+            $this->db->execute();
+        }
+
         public function getDetailProductByLinkName($link_name){
             $query = 
                 "select p.*,c.name as cateName, b.name as brandName from products p ,categories c ,brands b
@@ -155,11 +162,26 @@
             $this->db->prepare($query);
             $this->db->bindValue(':link_name',$link_name,'string');
             if($this->db->execute()){
-                return $this->db->fetchOne();
+                $productDetail = $this->db->fetchOne();
+                $sameCateProducts = $this->getSameCateProducts($productDetail->category);
+                $sameBrandProducts = $this->getSameBrandProducts($productDetail->brand);
+                return [
+                    'productDetail' => $productDetail,  
+                    'sameCateProduct' => $sameCateProducts, 
+                    'sameBrandProduct' => $sameBrandProducts 
+                ];
             }
             else{
                 return [];
             }
+        }
+
+        public function getSameCateProducts($cate){
+
+        }
+
+        public function getSameBrandProducts($brand){
+
         }
         
 
