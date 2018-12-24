@@ -44,7 +44,7 @@
                             <?php echo(number_format($data['product']['productDetail']->price*1000))?>&nbsp;₫</strong>
                     </span>
                 </p>
-                <button class="button add-to-cart primary large rounded bg-red mt-3">Đặt Hàng</button>
+                <button data-productid = "<?php echo $data['product']['productDetail']->id?>"class="button add-to-cart primary large rounded bg-red mt-3">Đặt Hàng</button>
             </div>
         </div>
     </div>

@@ -20,7 +20,8 @@
                 ? require_once('views/' . $layout . '/layout/header.php')
                 : require_once('views/' . $layout . '/layout/login_register_header.php');
                 require_once('views/'  . $layout .'/' . $view . '.php');
-                require_once('views/' . $layout . '/layout/footer.php');
+                !$this->isLoginRegisterView($view) 
+                ? require_once('views/' . $layout . '/layout/footer.php') : '';
             }else{
                 echo("Không tồn tại trang");
             }

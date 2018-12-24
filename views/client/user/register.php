@@ -1,13 +1,5 @@
-<br><br><br><br>
 <?php 
-
-
-    $flash = getSession('flash');
-    if(isset($flash)){
-        echo '<br><br><h1>'. $flash . '</h1>';
-        clearSession('flash');
-    }
-    
+    $flash = getSession('flash'); 
 ?>
 <div class="container">
         <div class="grid">
@@ -16,9 +8,15 @@
                     <h1 class="text-center text-medium my-login-form-color">Tạo tài khoản</h1>
                     <h6 class="text-center text-normal my-tieude">Đăng ký để nhận nhiều ưu đãi!</h6>
                     <form method="POST" class="mt-10">
+                        <?php  if(isset($flash)){ ?>
+                            <h5 class="border-radius-4 fg-white p-2 text-medium text-center <?php echo $flash['type']=='error' ? 'bg-red' : 'bg-green' ?>bg-red">
+                               <?php echo $flash['content'] ?> 
+                            </h5>
+                        <?php clearSession('flash'); }?>
+                        
                         <div class="form-group">
 
-                            <input name="username" type="text" placeholder="Username" />
+                            <input name="username" type="text" value="<?php echo $data['username']; ?>" placeholder="Username" />
                         </div>
                         <div class="form-group">
 
@@ -30,10 +28,10 @@
                         </div>
                         <div class="form-group">
 
-                            <input name="fullname" type="text" placeholder="Your name" />
+                            <input name="fullname" type="text" value="<?php echo $data['fullname']; ?>"  placeholder="Your name" />
                         </div>
                         <div class="form-group">
-                            <input name="email" type="email" placeholder="Email" />
+                            <input name="email" type="email" value="<?php echo $data['email']; ?>"  placeholder="Email" />
                         </div>
                         <div class="form-group mt-4">
                             <div class="g-recaptcha" style="width:100%" data-sitekey="6LfBIYMUAAAAAOj48phCAzAINpdtysSvqiSopeDX"></div>

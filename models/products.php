@@ -16,15 +16,38 @@
             return $result;
         }
 
+
+        public function getLastPageNumber($rowPersPage){
+            $query = "select count(id) as number from products";
+            $this->db->prepare($query);
+            if($this->db->execute()){
+                $number = $this->db->fetchOne()->number;
+                return ceil($number / $rowPersPage);
+            }else{
+                return 0;
+            }
+        }
+
+
+        public function getProductsWithMoreId($range){
+            $query = "select name,image,price from products where id in (" . $range . ")";
+            $this->db->prepare($query);
+            if($this->db->execute()){
+                return $this->db->fetchAll();
+            }else{
+                return [];
+            }
+        }
+
         public function getAllProducts($page){
             $rowPersPage = 7;
             $count = 0;
+            $lastPageNumber = $this->getLastPageNumber($rowPersPage);
             $offset = ($page-1) * $rowPersPage;
-            $limit = ($page * $rowPersPage) - 1; 
             $result = [];
             
             $query = 
-                "select p.id as id ,
+                "   select p.id as id ,
                     p.name as name,
                     p.image as image,
                     p.price as price,
@@ -32,27 +55,28 @@
                     b.name as brand,
                     p.views,
                     p.quantity,
-                    p.origin
+                    p.origin,
+                    p.link_name
 
-                from products as p 
+                    from products as p 
                     inner join categories  as c on p.category = c.id
                     inner join brands as b on p.brand = b.id
+
+                    order by id desc limit 7 offset :offset 
                 ";
 
             $this->db->prepare($query);
+            $this->db->bindValue(':offset',$offset,'int');
             if($this->db->execute()){
                 $result = $this->db->fetchAll();
-                if($page != 0){
-                    $nRows = count($result);
-                    $count = ceil($nRows / $rowPersPage);
-                    $result = array_slice($result, $offset, $limit+1); 
-                }
+                return [
+                    'products' => $result,
+                    'page' => $page,
+                    'lastPageNumber' => $lastPageNumber
+                ];
+            }else{
+                return [];
             }
-            return [
-                'products' => $result,
-                'count' => $count
-            ];
-           // return"hello";
         }
 
         public function getLatestProducts($number){
@@ -217,8 +241,62 @@
                 return [];
             }
         }
-        
 
+        public function addProduct($product){
+            $query = "insert into products
+                    (name,link_name,image,price,category,brand,quantity,origin,description)
+                    values(:name,:link_name,:image,:price,:category,:brand,:quantity,:origin,:description)";
+            $this->db->prepare($query);
+            $this->db->bindValue(':name',$product['name'],'string');
+            $this->db->bindValue(':link_name',$product['link_name'],'string');
+            $this->db->bindValue(':image',$product['image'],'string');
+            $this->db->bindValue(':price',$product['price'],'int');
+            $this->db->bindValue(':category',$product['category'],'int');
+            $this->db->bindValue(':brand',$product['brand'],'int');
+            $this->db->bindValue(':quantity',$product['quantity'],'int');
+            $this->db->bindValue(':origin',$product['origin'],'string');
+            $this->db->bindValue(':description',$product['description'],'string');
+            if($this->db->execute()){
+                return true;
+            }else{
+                return false;
+            }
+
+        }
+
+        public function editProductById($id,$product){
+            $result = false;
+            $query = "update products set
+                    name=(:name),
+                    link_name=(:link_name),
+                    image=(:image),
+                    price=(:price),
+                    category=(:category),
+                    brand=(:brand),
+                    quantity=(:quantity),
+                    origin=(:origin),
+                    description=(:description)
+                    where id = (:id)";
+            $this->db->prepare($query);
+            $this->db->bindValue(':id',$id,'int');
+            $this->db->bindValue(':name',$product['name'],'string');
+            $this->db->bindValue(':link_name',$product['link_name'],'string');
+            $this->db->bindValue(':image',$product['image'],'string');
+            $this->db->bindValue(':price',$product['price'],'int');
+            $this->db->bindValue(':category',$product['category'],'int');
+            $this->db->bindValue(':brand',$product['brand'],'int');
+            $this->db->bindValue(':quantity',$product['quantity'],'int');
+            $this->db->bindValue(':origin',$product['origin'],'string');
+            $this->db->bindValue(':description',$product['description'],'string');
+            if($this->db->execute()){
+                $result = true;
+            }
+         
+           return $result;
+        }
+
+
+      
 
 
 

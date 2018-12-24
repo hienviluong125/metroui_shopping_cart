@@ -441,7 +441,7 @@ color:#f80ba9;
    /* // line-height:30px; */
 }
 .shopping-cart-wrapper{
-    width:70%;
+    min-width:40px !important;
     height:auto;
     position: relative;
     /* text-align: center !important; */
@@ -494,7 +494,7 @@ color:#f80ba9;
 .cart-notify-area{
     display: none;
     position: absolute;
-    width:170%;
+    width:250px !important;
     top:120%;
     right:0%;
     height:85px;

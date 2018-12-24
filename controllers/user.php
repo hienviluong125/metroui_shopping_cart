@@ -9,7 +9,7 @@
         public function register(){
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-                $user = [
+                $data = [
                     'username' => $_POST['username'],
                     'password' => $_POST['password'],
                     'passwordConfirm' => $_POST['passwordConfirm'],
@@ -23,18 +23,28 @@
                  if(!$captcha){
                      echo("Nhập captcha dzo");
                  }
-                $response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=6LfBIYMUAAAAAI_UvAITNvk04QLq87aZl_a5q2T-&response=".$captcha."&remoteip=".$_SERVER['REMOTE_ADDR']);
-                print_r($response);
-               // $isSuccess = $this->model->register($user);
-               // if($isSuccess){
-                //    createSession('flash','Đăng ký thành công');
-                //    header('Location: '.'login');
-               // }else{
-               //     createSession('flash','Đăng ký thất bại');
-               //     header('Location: '.'register');
-               // }
+                // $response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=6LfBIYMUAAAAAI_UvAITNvk04QLq87aZl_a5q2T-&response=".$captcha."&remoteip=".$_SERVER['REMOTE_ADDR']);
+                // if($response.success){
+                    $isSuccess = $this->model->register($data);
+                    if($isSuccess){
+                        $flash = ['type'=>'success','content'=>'Đăng ký thành công'];
+                        createSession('flash',$flash);
+                        header('Location: '.'login');
+                    }else{
+                        $flash = ['type'=>'error','content'=>'Đăng ký thất bại'];
+                        createSession('flash',$flash);
+                        $this->renderView('user/register',$data);
+                    }
+                // }
+              
             }else{
-                $data = [];
+                $data = [
+                    'username' => '',
+                    'password' => '',
+                    'passwordConfirm' => '',
+                    'fullname' =>'',
+                    'email' =>''
+                ];
                 $this->renderView('user/register',$data);
             }
            
@@ -50,13 +60,17 @@
                 ];
                 $loginResult = $this->model->login($user);
                 if($loginResult == -1){
-                    createSession('flash','Username không tồn tại');
+                    $flash = ['type'=>'error','content'=>'Username không tồn tại'];
+                    createSession('flash',$flash);
                     header('Location: '.'login');
                 }else if($loginResult == 0){
-                    createSession('flash','Password không đúng');
+                    $flash = ['type'=>'error','content'=>'Password không đúng'];
+                    createSession('flash',$flash);
                     header('Location: '.'login');
                 }else{
-                    createSession('flash','Đăng nhập thành công');
+                    $flash = ['type'=>'success','content'=>'Đăng nhập thành công'];
+                    createSession('flash',$flash);
+                   // createSession()
                     header('Location: '. ROOTURL . '/home');
 
                 }
@@ -69,5 +83,9 @@
     public function logout(){
         clearAllSession();
         header('Location: '. ROOTURL . '/user/login');
+    }
+
+    public function profile(){
+
     }
 }

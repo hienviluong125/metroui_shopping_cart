@@ -1,10 +1,5 @@
 <?php 
-    $flash = getSession('flash');
-    if(isset($flash)){
-        echo '<br><br><h1>'. $flash . '</h1>';
-        clearSession('flash');
-    }
-   
+    $flash = getSession('flash');   
 ?>
 <div class="container">
         <div class="grid">
@@ -13,6 +8,11 @@
                     <h1 class="text-center text-medium my-login-form-color">WeedDev</h1>
                     <h6 class="text-center text-normal my-tieude">Dzô 1 tí tặng 1 tỷ</h6>
                     <form method="POST">
+                        <?php  if(isset($flash)){ ?>
+                            <h5 class="border-radius-4 fg-white p-2 text-medium text-center <?php echo $flash['type']=='error' ? 'bg-red' : 'bg-green' ?>">
+                               <?php echo $flash['content'] ?> 
+                            </h5>
+                        <?php clearSession('flash'); }?>
                         <div class="form-group">
 
                             <input type="text" name="username" placeholder="Username" />

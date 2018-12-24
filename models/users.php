@@ -7,8 +7,14 @@
             $this->db = new Database();
         }
         
-        public function getData(){
-            return 'my data from model';
+        public function getAllUsers(){
+            $query = "select username,fullname,avatar,email,role,phone,address from users";
+            $this->db->prepare($query);
+            if($this->db->execute()){
+                return $this->db->fetchAll();
+            }else{
+                return [];
+            }
         }
 
         public function register($param){
@@ -60,6 +66,8 @@
                 return -1;
             }
         }
+        
+        // public function 
 
 
 

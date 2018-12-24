@@ -20,7 +20,7 @@
                 'topViewsProducts' =>$this->productModel->getTopViewsProducts(10),
                 'hotSellingProducts'=>$this->productModel->getHotSellingProducts(10)
             ];
-           $this->renderView('home',$data);
+           $this->renderView('home/index',$data);
         }
 
  

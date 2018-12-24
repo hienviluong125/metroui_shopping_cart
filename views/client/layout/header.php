@@ -72,11 +72,32 @@
                         </div>
                     </div>
                     <div class="cell-3">
+                        <div class="user-info float-left">
+                                <img class="float-left mr-2" height="30px" src="<?php echo ROOTURL?>/public/img/noavatar.jpg"/>
+                                <?php
+                                    if(isset($user) && !empty($user)){
+                                ?>
+                                    <span class="float-left text-center mr-2"><?php echo $user['username'];?></span>
+                                <?php } ?>
+                                <span style="padding-top:1.5px !important;" class="user-dd-icon ml-1 mif-chevron-thin-down float-left"></span>
+                                <div class="user-info-dropdown z-top">
+                                    <p class="p-2 text-center m--0 ">
+                                        Thông tin
+                                    </p>
+                                    <p class="p-2 text-center m-0 ">
+                                        <a style="text-decoration:none;" class="fg-dark" href="<?php echo (ROOTURL . '/cart'); ?>">Giỏ hàng</a>
+                                    </p>
+                                    <p class="p-2 text-center m-0  logout">
+                                        <a style="text-decoration:none;" class="fg-dark" href="<?php echo (ROOTURL . '/user/logout'); ?>">Đăng xuất</a>
+                                    </p>
+                                </div>
+                        </div>
                         <div class="shopping-cart-wrapper float-left">
-                            <div class="shopping-cart  pt-1 pl-2 pr-2 mr-3 float-right ">
+                            <div class="shopping-cart  pt-1 pl-2 float-right ">
                                 <span class="icon mif-cart fg-white"></span>
                                 <span class="badge shopping-badge bg-orange fg-white"><?php echo ($cartQty);?></span>
                             </div>
+                            
                             <div class="bg-light p-2 cart-notify-area border border-radius-4" data-show="false">
                             <div class="float-left text-center bg-green check-icon mr-2"> 
                                 <span class="text-center fg-white mif-checkmark"></span>
@@ -84,29 +105,10 @@
                             <span class="float-right mif-cancel"></span>
                             <p class="m-0 p-0 float-left">Đã thêm vào giỏ hàng</p>
                             
-                            <button class="button cell-12 mt-2 mb-2 bg-orange border-btn fg-white">Xem chi tiết giỏ hàng</butto>  
+                            <a href="<?php echo (ROOTURL . '/cart'); ?>" class="button cell-12 mt-2 mb-2 bg-orange border-btn fg-white">Xem chi tiết giỏ hàng</a>  
                             </div>
                         </div>
-                        <?php
-                            if(isset($user)){
-                        ?>
-                        <div class="user-info float-right">
-                            <img class="float-left mr-2" height="30px" src="<?php echo ROOTURL?>/public/img/noavatar.jpg"/>
-                            <span class="float-left text-center mr-2"><?php echo($user['username']);?></span>
-                            <span style="padding-top:1.5px !important;" class="user-dd-icon ml-1 mif-chevron-thin-down float-left"></span>
-                            <div class="user-info-dropdown z-top">
-                                <p class="p-2 text-center m--0 ">
-                                    Thông tin
-                                </p>
-                                <p class="p-2 text-center m-0 ">
-                                    Giỏ hàng</p>
-                                <p class="p-2 text-center m-0  logout">
-                                    <a style="text-decoration:none;" class="fg-dark" href="<?php echo (ROOTURL . '/user/logout'); ?>">Đăng xuất</a>
-                                </p>
-                            </div>
-                        </div>
-                        <?php }?>
-                        
+                      
                     </div>
                 </div>
             </div>

@@ -6,7 +6,7 @@
 
         public function index(){
             $data =[];
-            $this->renderView('contact',$data);
+            $this->renderView('contact/index',$data);
         }
 
         

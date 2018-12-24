@@ -1,20 +1,20 @@
 <?php
-    class category extends BaseController {
+    class brand extends BaseController {
         private $model;
         public function __construct(){
             authorization();
-            $this->model = $this->initModel('categories');
+            $this->model = $this->initModel('brands');
         }
 
         public function show($page){
            
-            $categories = $this->model->getAllCategories($page);
+            $brands = $this->model->getAllBrands($page);
             $data = [
-                'categories' => $categories['categories'],
-                'page' =>  $categories['page'],
-                'lastPageNumber' =>  $categories['lastPageNumber']
+                'brands' => $brands['brands'],
+                'page' =>  $brands['page'],
+                'lastPageNumber' =>  $brands['lastPageNumber']
             ];
-            $this->renderView('category/show',$data,'dashboard');
+            $this->renderView('brand/show',$data,'dashboard');
         }
 
         public function add($page){
@@ -34,17 +34,17 @@
                     ];
                 
                     if(file_exists('public/img/' . $image)){
-                        $queryResult = $this->model->addNewCategory($data);
+                        $queryResult = $this->model->addNewBrand($data);
                     }
                     else{
                         if(move_uploaded_file($sourcePath,$targetPath)){
-                            $queryResult = $this->model->addNewCategory($data);
+                            $queryResult = $this->model->addNewBrand($data);
                         }
                     }
                 }
-                header('Location: '. ROOTURL . '/dashboard/category/show/' . $page);
+                header('Location: '. ROOTURL . '/dashboard/brand/show/' . $page);
             }else{
-                $this->renderView('category/add',$data,'dashboard');
+                $this->renderView('brand/add',$data,'dashboard');
             }
             
         }
@@ -72,21 +72,23 @@
                     'image' => $image,
                     'link_name'=>$link_name
                 ];
-                $queryResult = $this->model->editCategoryById($id,$data);
-                header('Location: '. ROOTURL . '/dashboard/category/show/' . $page);
+                $queryResult = $this->model->editBrandById($id,$data);
+                header('Location: '. ROOTURL . '/dashboard/brand/show/' . $page);
             }
             else{
-                $editItem = $this->model->getCategoryById($id);
+                $editItem = $this->model->getBrandById($id);
                 $data['editItem'] = $editItem;
-                $this->renderView('category/edit',$data,'dashboard');
+                $this->renderView('brand/edit',$data,'dashboard');
             }
         }
 
+
         public function delete($id){
             $referer = filter_var($_SERVER['HTTP_REFERER'], FILTER_VALIDATE_URL);
-            $result = $this->model->deleteCategoryById($id);
+            $result = $this->model->deleteBrandById($id);
             header('Location:'. $referer);
         }
+
 
 
       

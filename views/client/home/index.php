@@ -100,7 +100,7 @@
                                     <a href="<?php echo ROOTURL . '/product/detail/' . $product->link_name?>" class="button border-btn dark float-left mr-2">
                                         <span class="mif-eye"></span>&ensp;Chi tiết
                                     </a>
-                                    <button class="button add-to-cart border-btn success float-left ">
+                                    <button data-productid="<?php echo $product->id?>"  class="button add-to-cart border-btn success float-left ">
                                         <span class="mif-cart"></span>&ensp;Mua ngay
                                     </button>
                                 </div>
@@ -168,7 +168,7 @@
                                     <a href="<?php echo ROOTURL . '/product/detail/' . $product->link_name?>" class="button border-btn dark float-left mr-2">
                                         <span class="mif-eye"></span>&ensp;Chi tiết
                                     </a>
-                                    <button class="button add-to-cart border-btn success float-left ">
+                                    <button data-productid="<?php echo $product->id?>"  class="button add-to-cart border-btn success float-left ">
                                         <span class="mif-cart"></span>&ensp;Mua ngay
                                     </button>
                                 </div>
@@ -209,7 +209,7 @@
                                     <a href="<?php echo ROOTURL . '/product/detail/' . $product->link_name?>" class="button border-btn dark float-left mr-2">
                                         <span class="mif-eye"></span>&ensp;Chi tiết
                                     </a>
-                                    <button class="button add-to-cart border-btn success float-left ">
+                                    <button data-productid="<?php echo $product->id?>"  class="button add-to-cart border-btn success float-left ">
                                         <span class="mif-cart"></span>&ensp;Mua ngay
                                     </button>
                                 </div>

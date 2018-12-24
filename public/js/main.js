@@ -51,7 +51,9 @@ function addTocart(id, qty) {
         data: JSON.stringify({ 'id': id, 'qty': qty }),
         success: function (data) {
             let cartData = JSON.parse(data);
-            $('.shopping-badge').html(cartData.length);
+
+            //console.log(cartData);
+           $('.shopping-badge').html(cartData.length);
         },
         error: function (err) {
             runToast('error', "Xóa thất bại", 1000, null);
@@ -136,9 +138,29 @@ $(document).ready(function () {
 
     multiple_slider();
 
+    bindIdToDialog();
+    qty_input();
 
 
 });
+
+function bindIdToDialog(){
+    $('.delete-btn').on('click',function(){
+        Metro.dialog.open('#deleteDialog');
+        let id = $(this).data('deleteid');
+        let url = window.location.href;
+        
+        let deleteEndpoint = url.substring(0,url.indexOf('show')) + 'delete/' + id;
+        $('.delete-confirm-btn').attr('href',deleteEndpoint);
+
+    });
+}
+
+function qty_input(){
+    $('.qty-input').find('.original-input').on('keydown',function(e){
+        alert("hi");
+    })
+}
 
 function multiple_slider() {
     $('.prev-multiple').on('click', function () {

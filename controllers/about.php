@@ -6,7 +6,7 @@
 
         public function index(){
             $data =[];
-            $this->renderView('about',$data);
+            $this->renderView('about/index',$data);
         }
 
         
