@@ -26,10 +26,7 @@
     <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.11/lodash.min.js"></script>
     <script src='https://www.google.com/recaptcha/api.js?hl=vi'></script>
     <script src="<?php echo ROOTURL; ?>/public/js/jquery-3.3.1.min.js"></script>
-    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script src="<?php echo ROOTURL; ?>/public/js/metro.min.js"></script>
-    <script src="<?php echo ROOTURL; ?>/public/js/categories.js"></script>
-    <script src="<?php echo ROOTURL; ?>/public/js/products.js"></script>
     <script src="<?php echo ROOTURL; ?>/public/js/main.js"></script>
     
 

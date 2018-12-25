@@ -72,31 +72,37 @@
                         </div>
                     </div>
                     <div class="cell-3">
-                        <div class="user-info float-left">
+                        <?php
+                            if(isset($user) && !empty($user)){
+                        ?>
+                            <div class="user-info float-left">
                                 <img class="float-left mr-2" height="30px" src="<?php echo ROOTURL?>/public/img/noavatar.jpg"/>
-                                <?php
-                                    if(isset($user) && !empty($user)){
-                                ?>
-                                    <span class="float-left text-center mr-2"><?php echo $user['username'];?></span>
-                                <?php } ?>
+                                <span class="float-left text-center mr-2"><?php echo $user['username'];?></span>
+
                                 <span style="padding-top:1.5px !important;" class="user-dd-icon ml-1 mif-chevron-thin-down float-left"></span>
                                 <div class="user-info-dropdown z-top">
                                     <p class="p-2 text-center m--0 ">
-                                        Thông tin
+                                         <a style="text-decoration:none;" class="fg-dark" href="<?php echo (ROOTURL . '/user/info'); ?>">Thông tin</a>
                                     </p>
                                     <p class="p-2 text-center m-0 ">
                                         <a style="text-decoration:none;" class="fg-dark" href="<?php echo (ROOTURL . '/cart'); ?>">Giỏ hàng</a>
+                                    </p>
+                                    <p class="p-2 text-center m-0 ">
+                                        <a style="text-decoration:none;" class="fg-dark" href="<?php echo (ROOTURL . '/user/orderHistory'); ?>">Lịch sử mua hàng</a>
                                     </p>
                                     <p class="p-2 text-center m-0  logout">
                                         <a style="text-decoration:none;" class="fg-dark" href="<?php echo (ROOTURL . '/user/logout'); ?>">Đăng xuất</a>
                                     </p>
                                 </div>
-                        </div>
-                        <div class="shopping-cart-wrapper float-left">
-                            <div class="shopping-cart  pt-1 pl-2 float-right ">
-                                <span class="icon mif-cart fg-white"></span>
-                                <span class="badge shopping-badge bg-orange fg-white"><?php echo ($cartQty);?></span>
                             </div>
+                            <?php } ?>
+                        <div class="shopping-cart-wrapper float-left">
+                             <a href="<?php echo (ROOTURL . '/cart'); ?>">
+                                <div class="shopping-cart  pt-1 pl-2 float-right ">
+                                    <span class="icon mif-cart fg-white"></span>
+                                    <span class="badge shopping-badge bg-orange fg-white"><?php echo ($cartQty);?></span>
+                                </div>
+                            </a>
                             
                             <div class="bg-light p-2 cart-notify-area border border-radius-4" data-show="false">
                             <div class="float-left text-center bg-green check-icon mr-2"> 

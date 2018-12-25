@@ -1,5 +1,5 @@
 <div class="container ">
-        <div class="ml-2 slider bg-blue">
+        <div class="ml-2 slider ">
             <div class="slider-wrapper">
                 <div id="my-slider" class="single-slider">
                     <div class="sliders" data-animating="false">
@@ -16,6 +16,11 @@
                 </div>
                 <span class="prev mif-chevron-left mif-5x fg-white"></span>
                 <span class="next mif-chevron-right mif-5x fg-white"></span>
+            </div>
+            <div class="float-right">
+                <div class="ads-image" >
+                    <img src="https://img.purch.com/rc/500x300/aHR0cDovL21lZGlhLmJlc3RvZm1pY3JvLmNvbS9FL0IvNzM3OTM5L29yaWdpbmFsL3BsYXllcnVua25vd25zLWJhdHRsZWdyb3VuZHMtcHViZy1nYW1lLXJlYWR5LWRyaXZlci1kb3dubG9hZC1ub3cta2V5dmlzdWFsLmpwZw==" width="430px" height="300px" />
+                </div>
             </div>
         </div>
         <div class="slogan ml-5 mr-1">
@@ -58,8 +63,10 @@
                                 <div class="single-item float-left">
                                     <img src="<?php echo ROOTURL . '/public/img/' . $item->image;?>" width="186px" height="186px" />
                                     <div class="single-item-card">
-                                        <p><?php  echo (substr($item->name,0,15) . '...')?></p>
-                                        <p class="fg-red pb-2"><?php echo  number_format($item->price*1000) ?>₫</p>
+                                        <p class="m-0 p-0"><?php  echo (substr($item->name,0,15) . '...')?></p>
+                                        <p class="fg-red m-0 p-0"><?php echo  number_format($item->price*1000) ?>₫</p>
+                                        <a class="button mini mb-3 bg-grayBlue fg-white " href="<?php echo ROOTURL . '/product/detail/' . $item->link_name?>" >Chi tiết</a>
+                                        <button data-productid="<?php echo $item->id?>" class="button add-to-cart mini bg-darkGreen fg-white mb-3">Mua ngay</button>
                                         
                                     </div>
                                 </div>
@@ -128,8 +135,10 @@
                                 <div class="single-item float-left">
                                     <img src="<?php echo ROOTURL . '/public/img/' . $item->image;?>" width="186px" height="186px" />
                                     <div class="single-item-card">
-                                        <p><?php  echo (substr($item->name,0,15) . '...')?></p>
-                                        <p class="fg-red pb-2"><?php echo  number_format($item->price*1000) ?>₫</p>
+                                    <p class="m-0 p-0"><?php  echo (substr($item->name,0,15) . '...')?></p>
+                                        <p class="fg-red m-0 p-0"><?php echo  number_format($item->price*1000) ?>₫</p>
+                                        <a class="button mini mb-3 bg-grayBlue fg-white " href="<?php echo ROOTURL . '/product/detail/' . $item->link_name?>" >Chi tiết</a>
+                                        <button data-productid="<?php echo $item->id?>" class="button add-to-cart mini bg-darkGreen fg-white mb-3">Mua ngay</button>
                                         
                                     </div>
                                 </div>
@@ -240,9 +249,10 @@
                                 <div class="single-item float-left">
                                     <img src="<?php echo ROOTURL . '/public/img/' . $item->image;?>" width="186px" height="186px" />
                                     <div class="single-item-card">
-                                        <p><?php  echo (substr($item->name,0,15) . '...')?></p>
-                                        <p class="fg-red pb-2"><?php echo  number_format($item->price*1000) ?>₫</p>
-                                        
+                                        <p class="m-0 p-0"><?php  echo (substr($item->name,0,15) . '...')?></p>
+                                        <p class="fg-red m-0 p-0"><?php echo  number_format($item->price*1000) ?>₫</p>
+                                        <a class="button mini mb-3 bg-grayBlue fg-white " href="<?php echo ROOTURL . '/product/detail/' . $item->link_name?>" >Chi tiết</a>
+                                        <button data-productid="<?php echo $item->id?>" class="button add-to-cart mini bg-darkGreen fg-white mb-3">Mua ngay</button>
                                     </div>
                                 </div>
                             <?php } ?>

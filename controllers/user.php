@@ -16,27 +16,16 @@
                     'fullname' => $_POST['fullname'],
                     'email' => $_POST['email']
                 ];
-                $captcha="";
-                if(isset($_POST['g-recaptcha-response'])){
-                    $captcha = $_POST['g-recaptcha-response'];
-                 }
-                 if(!$captcha){
-                     echo("Nhập captcha dzo");
-                 }
-                // $response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=6LfBIYMUAAAAAI_UvAITNvk04QLq87aZl_a5q2T-&response=".$captcha."&remoteip=".$_SERVER['REMOTE_ADDR']);
-                // if($response.success){
-                    $isSuccess = $this->model->register($data);
-                    if($isSuccess){
-                        $flash = ['type'=>'success','content'=>'Đăng ký thành công'];
-                        createSession('flash',$flash);
-                        header('Location: '.'login');
-                    }else{
-                        $flash = ['type'=>'error','content'=>'Đăng ký thất bại'];
-                        createSession('flash',$flash);
-                        $this->renderView('user/register',$data);
-                    }
-                // }
-              
+                $isSuccess = $this->model->register($data);
+                if($isSuccess){
+                    $flash = ['type'=>'success','content'=>'Đăng ký thành công'];
+                    createSession('flash',$flash);
+                    header('Location: '.'login');
+                }else{
+                    $flash = ['type'=>'error','content'=>'Đăng ký thất bại'];
+                    createSession('flash',$flash);
+                    $this->renderView('user/register',$data);
+                }
             }else{
                 $data = [
                     'username' => '',

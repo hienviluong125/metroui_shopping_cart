@@ -4,7 +4,7 @@
             <h3 class="text-medium">Giỏ hàng</h3>
         </div>
         <div>
-            <table class="table table-border cell-border compact text-center">
+            <table class="table cart-table table-border cell-border compact text-center">
                 <thead>
                     <tr clas="text-center">
                         <th>
@@ -32,16 +32,16 @@
                 </thead>
                 <tbody>
                     <?php for($i =0;$i<count($data['cartItemList']);$i++){?>
-                    <tr>
+                    <tr class="cart-item">
                         <td><?php echo ($i+1);?></td>
-                        <td><?php echo $data['cartItemList'][$i]['id']?></td>
+                        <td class="cart-item-id"><?php echo $data['cartItemList'][$i]['id']?></td>
                         <td><img style="width:50px" src="public/img/<?php echo $data['cartItemList'][$i]['image']; ?>"></td>
                         <td><a class="text-medium" href="#">
                                 <p class="my-btn-text"><?php echo $data['cartItemList'][$i]['name']; ?></p>
                             </a>
                         </td>
                         <td class="qty">
-                        <input type="number" class="qty-input" value="<?php echo $data['cartItemList'][$i]['qty'];?>" data-role="spinner" data-min-value="1" data-max-value="25">
+                        <input type="number" class="qty-input"  data-taginput value="<?php echo $data['cartItemList'][$i]['qty'];?>" data-role="spinner" data-min-value="1" data-max-value="25">
                         </td>
                         <td> <h6><?php echo number_format($data['cartItemList'][$i]['price']*1000);?>đ</h6></td>
                         <td>
@@ -67,9 +67,9 @@
 
                 </tbody>
             </table>
-            <a href="<?php echo ROOTURL . '/home';?>" class="button outline primary  rounded float-left">Mua tiếp</a>
-            <button class="button success rounded ml-2 float-right">Thanh toán</button>
-            <button class="button secondary rounded  float-right">Cập nhật</button>
+            <a href="<?php echo ROOTURL . '/product/show/category/chuot/1';?>" class="button outline primary  rounded float-left">Mua tiếp</a>
+            <a href="<?php echo ROOTURL . '/cart/checkout';?>" class="button success rounded ml-2 float-right">Thanh toán</a>
+            <button class="button update-cart secondary rounded  float-right">Cập nhật</button>
            
 
         </div>

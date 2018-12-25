@@ -17,6 +17,17 @@
             }
         }
 
+        public function getInfoUser($username){
+            $query = "select id,username,fullname,avatar,email,role,phone,address from users where username = (:username)";
+            $this->db->prepare($query);
+            $this->db->bindValue(':username',$username,'string');
+            if($this->db->execute()){
+                return $this->db->fetchOne();
+            }else{
+                return null;
+            }
+        }
+
         public function register($param){
             if($param['password'] != $param['passwordConfirm']){
                 return false;

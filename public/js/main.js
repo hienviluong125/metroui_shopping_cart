@@ -22,28 +22,16 @@ function cartAddBtnEvent() {
         });
     });
 }
-// $('.cart-notify-area').stop(true, true).fadeIn(300, function () {
 
-//     let isPopup = $(this).data('show');
-//     console.log(isPopup);
-//     // if (typeof isPopup !== 'undefined' && isPopup) {
-//     //     setTimeout(function () {
-//     //         $('.cart-notify-area').fadeOut(300, function () {
-//     //             $(this).data('show', false);
-//     //         });
-//     //     }, 3000);
-//     // }
-
-
-
-// });
-function addTocart(id, qty) {
-
-
+function getAjaxDir(){
     let siteName = "metroui_shopping_cart";
     let rootUrl = window.location.href;
     let ajaxDir = rootUrl.indexOf(siteName);
-    ajaxDir = rootUrl.substring(0, ajaxDir + siteName.length) + '/ajax/php_service/';
+    return rootUrl.substring(0, ajaxDir + siteName.length) + '/ajax/php_service/';
+}
+
+function addTocart(id, qty) {
+    ajaxDir = getAjaxDir();
 
     $.ajax({
         type: "POST",
@@ -53,7 +41,7 @@ function addTocart(id, qty) {
             let cartData = JSON.parse(data);
 
             //console.log(cartData);
-           $('.shopping-badge').html(cartData.length);
+            $('.shopping-badge').html(cartData.length);
         },
         error: function (err) {
             runToast('error', "Xóa thất bại", 1000, null);
@@ -122,6 +110,54 @@ function sliderInit() {
     })
 }
 
+function GGCaptchaChecked(){
+    let className = $('.g-captcha-notification').attr('class');
+    $('.g-captcha-notification').html('Check thành công');
+    className = className.replace('fg-red','fg-green');
+    $('.g-captcha-notification').attr('class',className);
+    $('.register-btn').removeAttr('disabled');
+
+}
+
+function updateCart(){
+    let ajaxDir = getAjaxDir();
+    let cartItemList = [];
+    $('.cart-table > tbody > tr').each(function(){
+        let className = $(this).attr('class');
+        if(className === 'cart-item'){
+            let newCartElm ={};
+            newCartElm.id = parseInt($(this).find('.cart-item-id').text());
+            newCartElm.qty = parseInt($(this).find('.qty > .qty-input > .original-input').val());
+            cartItemList.push(newCartElm);
+        }
+    });
+    $.ajax({
+        type: "POST",
+        url: ajaxDir + 'updateCart.php',
+        data: JSON.stringify(cartItemList),
+        success: function () {
+            window.location.reload();
+        },
+        error: function (err) {
+            
+        }
+    });
+}
+
+function updateCartBtnClicked(){
+    
+    $('.update-cart').on('click',function(){
+        updateCart();
+    });
+    
+}
+
+function PlusMinusBtnClicked(){
+    $('.spinner-button').on('click',function(){
+        updateCart();
+    })
+}
+
 $(document).ready(function () {
 
     cartAddBtnEvent();
@@ -140,24 +176,32 @@ $(document).ready(function () {
 
     bindIdToDialog();
     qty_input();
+  
+    
+    updateCartBtnClicked();
+    
+    
+    
+    PlusMinusBtnClicked();
+    
 
 
 });
 
-function bindIdToDialog(){
-    $('.delete-btn').on('click',function(){
+function bindIdToDialog() {
+    $('.delete-btn').on('click', function () {
         Metro.dialog.open('#deleteDialog');
         let id = $(this).data('deleteid');
         let url = window.location.href;
-        
-        let deleteEndpoint = url.substring(0,url.indexOf('show')) + 'delete/' + id;
-        $('.delete-confirm-btn').attr('href',deleteEndpoint);
+
+        let deleteEndpoint = url.substring(0, url.indexOf('show')) + 'delete/' + id;
+        $('.delete-confirm-btn').attr('href', deleteEndpoint);
 
     });
 }
 
-function qty_input(){
-    $('.qty-input').find('.original-input').on('keydown',function(e){
+function qty_input() {
+    $('.qty-input').find('.original-input').on('keydown', function (e) {
         alert("hi");
     })
 }
