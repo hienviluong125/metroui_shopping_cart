@@ -112,7 +112,81 @@
             }
         }
 
-      
+
+        public function getLastPageNumberProductWithCateBrand($mode,$link_name,$rowPersPage){
+            $query = 
+            "select count(p.id) as number from products p, brands b
+            where p.brand = b.id and b.link_name = :link_name";
+            if($mode =='cate'){
+                $query = 
+                "select count(p.id) as number from products p, categories c
+                where p.category = c.id and c.link_name = :link_name";
+            }
+
+            $this->db->prepare($query);
+            $this->db->bindValue(':link_name',$link_name,'string');
+            if($this->db->execute()){
+                $number = $this->db->fetchOne()->number;
+                return ceil($number / $rowPersPage);
+            }else{
+                return 0;
+            }
+           
+        }
+
+        public function search($searchBy,$content){
+            if($searchBy == 'name'){
+                $query = "select * from products p where name LIKE :content ";
+                $this->db->prepare($query);
+                $this->db->bindValue(':content','%' . $content .'%','string');
+                if($this->db->execute()){
+                    return $this->db->fetchAll();
+                }else{
+                    return [];
+                }
+            }
+            else if($searchBy == 'description'){
+                $query = "select * from products p where name LIKE :content ";
+                $this->db->prepare($query);
+                $this->db->bindValue(':content','%' . $content .'%','string');
+                if($this->db->execute()){
+                    // print_r($this->db->fetchAll());
+                    return $this->db->fetchAll();
+                }else{
+                    return [];
+                }
+            }else if($searchBy == 'categories'){
+                $query = "select p.* from products p,categories c where p.category = c.id and p.name LIKE :content ";
+                $this->db->prepare($query);
+                $this->db->bindValue(':content','%' . $content .'%','string');
+                if($this->db->execute()){
+                    // print_r($this->db->fetchAll());
+                    return $this->db->fetchAll();
+                }else{
+                    return [];
+                }
+            }else if($searchBy == 'brands'){
+                $query = "select p.* from products p,brands b where p.brand = b.id and p.name LIKE :content ";
+                $this->db->prepare($query);
+                $this->db->bindValue(':content','%' . $content .'%','string');
+                if($this->db->execute()){
+                    // print_r($this->db->fetchAll());
+                    return $this->db->fetchAll();
+                }else{
+                    return [];
+                }
+            }else{
+                $query = "select * from products p where description LIKE :content ";
+                $this->db->prepare($query);
+                $this->db->bindValue(':content','%' . $content .'%','string');
+                if($this->db->execute()){
+                    // print_r($this->db->fetchAll());
+                    return $this->db->fetchAll();
+                }else{
+                    return [];
+                }
+            }
+        }
 
         public function getProductByCateLinkname($link_name,$page){
             $offset = ($page-1)*12;
@@ -175,6 +249,13 @@
             $query = "update products set views = views + 1 where link_name = :link_name";
             $this->db->prepare($query);
             $this->db->bindValue(':link_name',$link_name,'string');
+            $this->db->execute();
+        }
+
+        public function decreaseQuantityById($productid){
+            $query = "update products set quantity = quantity-1 where id = (:productid)";
+            $this->db->prepare($query);
+            $this->db->bindValue(':productid',$productid,'int');
             $this->db->execute();
         }
 

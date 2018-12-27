@@ -1,5 +1,11 @@
 <div class="container main-container pt-10 my-cart">
-    <?php if($data['isSuccess']){?>
+    <?php if($data['isSuccess'] == -1){ ?>
+        <h1 class="text-center  ">Bạn cần cập nhật địa chỉ và số điện thoại để thanh toán</h1>
+        <div class="text-center">
+            <a href="<?php echo ROOTURL . '/cart' ;?>" class="mt-2 button large outline success">Quay về giỏ hàng</a>
+            <a  href="<?php echo ROOTURL . '/user/profile' ;?>"class="mt-2 button large outline alert " target="_blank">Cập nhật thông tin</a>
+        </div>
+    <?php } else if($data['isSuccess'] == 1){?>
         <h1 class="text-center  ">Bạn đã thanh toán giỏ hàng thành công, đơn hàng sẽ sớm được giao đến địa chỉ trong tài khoản của bạn</h1>
         <div class="text-center">
             <div>

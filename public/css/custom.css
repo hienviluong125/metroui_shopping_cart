@@ -312,18 +312,24 @@ color:#f80ba9;
     line-height:35px;
 }
 
+.img-box:hover{
+    cursor: pointer;
+}
+
 .search-bar > .search-icon >span{
     color:rgb(223, 222, 222) !important;
 }
 
 .products{
-    min-width:1116px !important;
+   
     position: relative;
+    
     margin-right: 0px;
     padding: 0px !important;
     padding-top:20px !important;
     margin-left: 7px;
     background: #ffffff;
+    min-width:1116px !important;
 }
 
 .orange{

@@ -52,19 +52,19 @@
                     </div>
                     <div class="cell-6">
                         <div class="search-bar bg-white">
-                            <div class="search-by bg-white" data-cate="Tất cả">
+                            <div class="search-by bg-white" data-cate="Tên sản phẩm">
                                 <span class="cate"></span>
                                 <span class="mif-chevron-thin-down float-right pr-2 search-cate-dd-icon"></span>
                                 <div class="search-by-list z-top">
-                                    <p class="p-0 m-0">Tất cả</p>
-                                    <p class="p-0 m-0">Loại sản phẩm</p>
-                                    <p class="p-0 m-0">Nhà phát hành</p>
-                                    <p class="p-0 m-0">Giá tiền</p>
-                                    <p class="p-0 m-0">Lượt xem</p>
+                                    <p data-value="name" class="p-0 m-0">Tên sản phẩm</p>
+                                    <p data-value="categories" class="p-0 m-0">Loại sản phẩm</p>
+                                    <p data-value="brands" class="p-0 m-0">Nhà phát hành</p>
+                                    <p data-value="description" class="p-0 m-0">Mô tả</p>
+                       
                                 </div>
                             </div>
                             <div class="search-input bg-white">
-                                <input placeholder="Nhập nội dung tìm kiếm..." type="text" id="search-input" />
+                                <input placeholder="Nhập nội dung, ấn phím enter để tìm kiếm..." type="text" id="search-input" />
                             </div>
                             <div class="search-icon ">
                                 <span class="mif-search"></span>
@@ -76,20 +76,25 @@
                             if(isset($user) && !empty($user)){
                         ?>
                             <div class="user-info float-left">
-                                <img class="float-left mr-2" height="30px" src="<?php echo ROOTURL?>/public/img/noavatar.jpg"/>
-                                <span class="float-left text-center mr-2"><?php echo $user['username'];?></span>
+                                <img class="float-left mr-2" height="35px" width="35px" src="<?php echo ROOTURL . '/public/img/' . $user['avatar'];?>" />
+                                <span class="float-left pt-1 text-center mr-2"><?php echo $user['username'];?></span>
 
-                                <span style="padding-top:1.5px !important;" class="user-dd-icon ml-1 mif-chevron-thin-down float-left"></span>
+                                <span style="padding-top:1.5px !important;" class="user-dd-icon ml-1 mt-1 mif-chevron-thin-down float-left"></span>
                                 <div class="user-info-dropdown z-top">
                                     <p class="p-2 text-center m--0 ">
-                                         <a style="text-decoration:none;" class="fg-dark" href="<?php echo (ROOTURL . '/user/info'); ?>">Thông tin</a>
+                                         <a style="text-decoration:none;" class="fg-dark" href="<?php echo (ROOTURL . '/user/profile'); ?>">Thông tin</a>
                                     </p>
                                     <p class="p-2 text-center m-0 ">
                                         <a style="text-decoration:none;" class="fg-dark" href="<?php echo (ROOTURL . '/cart'); ?>">Giỏ hàng</a>
                                     </p>
                                     <p class="p-2 text-center m-0 ">
-                                        <a style="text-decoration:none;" class="fg-dark" href="<?php echo (ROOTURL . '/user/orderHistory'); ?>">Lịch sử mua hàng</a>
+                                        <a style="text-decoration:none;" class="fg-dark" href="<?php echo (ROOTURL . '/user/orders'); ?>">Lịch sử mua hàng</a>
                                     </p>
+                                    <?php if($user['role'] =='admin'){?>
+                                    <p class="p-2 text-center m-0 ">
+                                        <a style="text-decoration:none;" class="fg-dark" href="<?php echo (ROOTURL . '/dashboard/product/show/1'); ?>">Dashboard</a>
+                                    </p>
+                                    <?php }?>
                                     <p class="p-2 text-center m-0  logout">
                                         <a style="text-decoration:none;" class="fg-dark" href="<?php echo (ROOTURL . '/user/logout'); ?>">Đăng xuất</a>
                                     </p>
@@ -125,7 +130,7 @@
         <header class="container pos-relative bg-custom-blue">
             <ul class="h-menu mega main-menu  bg-custom-blue fg-white">
                 <li><a href="<?php echo(ROOTURL . '/home')?>">Trang chủ</a></li>
-                <li><a href="#">Giới thiệu</a></li>
+                <li><a href="<?php echo ROOTURL . '/about' ?>">Giới thiệu</a></li>
                 <li>
                     <a href="#" class="dropdown-toggle no-marker">Loại sản phẩm</a>
                     <div class="mega-container p-2 m-1 bg-white" data-role="dropdown">
@@ -145,7 +150,6 @@
                         </div>
                     </div>
                 </li>
-                <li><a href="#">Hướng dẫn</a></li>
                 <li>
                     <a href="#" class="dropdown-toggle no-marker">Nhà sản xuất</a>
                     <div class="mega-container p-2 m-1 bg-white" data-role="dropdown">
@@ -163,7 +167,7 @@
                         </div>
                     </div>
                 </li>
-                <li><a href="#">Liên hệ</a></li>
+                <li><a href="<?php echo ROOTURL . '/contact' ?>">Liên hệ</a></li>
             </ul>
         </header>
     </div>

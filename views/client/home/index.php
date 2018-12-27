@@ -61,14 +61,15 @@
                         <div class="sliders">
                             <?php foreach($data['latestProducts'] as $item){?>
                                 <div class="single-item float-left">
+                                <a style="text-decoration:none" href="<?php echo ROOTURL . '/product/detail/' . $item->link_name?>">
                                     <img src="<?php echo ROOTURL . '/public/img/' . $item->image;?>" width="186px" height="186px" />
                                     <div class="single-item-card">
-                                        <p class="m-0 p-0"><?php  echo (substr($item->name,0,15) . '...')?></p>
-                                        <p class="fg-red m-0 p-0"><?php echo  number_format($item->price*1000) ?>₫</p>
-                                        <a class="button mini mb-3 bg-grayBlue fg-white " href="<?php echo ROOTURL . '/product/detail/' . $item->link_name?>" >Chi tiết</a>
-                                        <button data-productid="<?php echo $item->id?>" class="button add-to-cart mini bg-darkGreen fg-white mb-3">Mua ngay</button>
-                                        
+                                        <p class="m-0 p-0 fg-white"><?php  echo (substr($item->name,0,15) . '...')?></p>
+                                        <small class="fg-red mt-1 p-0"><?php echo  number_format($item->price*1000) ?>₫</small>
+                                        <a class="button small bg-grayBlue fg-white " href="<?php echo ROOTURL . '/product/detail/' . $item->link_name?>" >Chi tiết</a>
+                                    
                                     </div>
+                                </a>
                                 </div>
                             <?php } ?>
                         </div>
@@ -133,14 +134,15 @@
                         <div class="sliders">
                             <?php foreach($data['hotSellingProducts'] as $item){?>
                                 <div class="single-item float-left">
+                                <a style="text-decoration:none" href="<?php echo ROOTURL . '/product/detail/' . $item->link_name?>">
                                     <img src="<?php echo ROOTURL . '/public/img/' . $item->image;?>" width="186px" height="186px" />
                                     <div class="single-item-card">
-                                    <p class="m-0 p-0"><?php  echo (substr($item->name,0,15) . '...')?></p>
-                                        <p class="fg-red m-0 p-0"><?php echo  number_format($item->price*1000) ?>₫</p>
-                                        <a class="button mini mb-3 bg-grayBlue fg-white " href="<?php echo ROOTURL . '/product/detail/' . $item->link_name?>" >Chi tiết</a>
-                                        <button data-productid="<?php echo $item->id?>" class="button add-to-cart mini bg-darkGreen fg-white mb-3">Mua ngay</button>
-                                        
+                                        <p class="m-0 p-0 fg-white"><?php  echo (substr($item->name,0,15) . '...')?></p>
+                                        <small class="fg-red mt-1 p-0"><?php echo  number_format($item->price*1000) ?>₫</small>
+                                        <a class="button small bg-grayBlue fg-white " href="<?php echo ROOTURL . '/product/detail/' . $item->link_name?>" >Chi tiết</a>
+                                    
                                     </div>
+                                </a>
                                 </div>
                             <?php } ?>
                         </div>
@@ -247,13 +249,15 @@
                         <div class="sliders">
                             <?php foreach($data['topViewsProducts'] as $item){?>
                                 <div class="single-item float-left">
-                                    <img src="<?php echo ROOTURL . '/public/img/' . $item->image;?>" width="186px" height="186px" />
-                                    <div class="single-item-card">
-                                        <p class="m-0 p-0"><?php  echo (substr($item->name,0,15) . '...')?></p>
-                                        <p class="fg-red m-0 p-0"><?php echo  number_format($item->price*1000) ?>₫</p>
-                                        <a class="button mini mb-3 bg-grayBlue fg-white " href="<?php echo ROOTURL . '/product/detail/' . $item->link_name?>" >Chi tiết</a>
-                                        <button data-productid="<?php echo $item->id?>" class="button add-to-cart mini bg-darkGreen fg-white mb-3">Mua ngay</button>
-                                    </div>
+                                    <a style="text-decoration:none" href="<?php echo ROOTURL . '/product/detail/' . $item->link_name?>">
+                                        <img src="<?php echo ROOTURL . '/public/img/' . $item->image;?>" width="186px" height="186px" />
+                                        <div class="single-item-card">
+                                            <p class="m-0 p-0 fg-white"><?php  echo (substr($item->name,0,15) . '...')?></p>
+                                            <small class="fg-red mt-1 p-0"><?php echo  number_format($item->price*1000) ?>₫</small>
+                                            <a class="button small bg-grayBlue fg-white " href="<?php echo ROOTURL . '/product/detail/' . $item->link_name?>" >Chi tiết</a>
+                                          
+                                        </div>
+                                    </a>
                                 </div>
                             <?php } ?>
                         </div>

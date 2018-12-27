@@ -1,4 +1,4 @@
-<!-- <?php $url = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";?> -->
+
 <div class="container main-container">
 <p class="ml-2 current-area cell-12"><?php echo($data['area'] . $data['current']);?></p>
     <div class="products ml-2 pt-7" >
@@ -27,9 +27,36 @@
                                 </div>
                             </div>
                         </div>
-                        <?php }?>
+                        <?php } ?>
                     </div>
-                
-        </div>
+                  
+        </div>            
      </div>
+     
 </div>
+
+<div class="cell-12">
+                <ul class="pagination dark flex-justify-center">
+                         <?php if($data['page'] != 1){?>
+                        <li class="page-item service"><a class="page-link" href="<?php echo ROOTURL . '/product/show/'.$data['linkto']. '/1'; ?>   "> << First</a></li>
+                        <?php } ?>
+                        <?php if($data['page'] > 1 ){?>
+                        <li class="page-item service"><a class="page-link"  href="<?php echo ROOTURL . '/product/show/'.$data['linkto']. '/' . ($data['page'] -1 );?>" >Prev ></a></li>
+                        <?php } ?>
+                       
+                        <?php for($i = $data['page'] - 3;$i < $data['page'] + 3;$i++){?>
+                            <?php if($i > 0 && $i <= $data['lastPageNumber']){?>
+                                <li class="page-item <?php echo ($i == $data['page'] ? 'active' : ''); ?>"><a class="page-link" href="<?php echo ROOTURL . '/product/show/'.$data['linkto']. '/' . ($i);?>"><?php echo $i; ?></a></li>
+                            <?php } ?>
+                        <?php } ?>
+                       
+                        
+                        <?php if($data['page'] < $data['lastPageNumber']){?>
+                        <li class="page-item service"><a class="page-link"  href="<?php echo ROOTURL . '/product/show/'.$data['linkto']. '/' . ($data['page'] + 1);?>" >Next ></a></li>
+                        <?php } ?>
+                        
+                        <?php if($data['page'] != $data['lastPageNumber']){?>
+                        <li class="page-item service"><a class="page-link"  href="<?php echo ROOTURL . '/product/show/'.$data['linkto']. '/' . $data['lastPageNumber'];?>" >Last >></a></li>
+                        <?php } ?>
+                    </ul>
+        </div>

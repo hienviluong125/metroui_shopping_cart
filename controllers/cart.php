@@ -91,7 +91,7 @@
 
         public function checkout(){
             $data = [
-                'isSuccess' => false,
+                'isSuccess' => 0,
                 'allCategories' => $this->categoryModel->getAllCategories(0)['categories'],
                 'allBrands' => $this->brandModel->getAllBrands(0)['brands']
             ];
@@ -99,50 +99,57 @@
             if(isset($user) && !empty($user)){
 
                 $userInfo = $this->userModel->getInfoUser($user['username']);
-                $cartList = getSession('cart');
-                if(!isset($cartList) || empty($cartList)){
-                    header('Location: '. ROOTURL . '/cart');
+                if(strlen($userInfo->address) < 1 || strlen($userInfo->phone) < 1){
+                    $data['isSuccess'] = -1;
                 }else{
-
-                    $StrIdArr = "";
-                    $cart = $cartList;
-                    for($i = 0;$i<count($cart);$i++){
-                        $char = ",";
-                       if($i === count($cart)-1){
-                            $char=  "";    
-                       }
-                       $StrIdArr = $StrIdArr . (string)$cart[$i]['id'] . $char;
-                    }
-
-                    $productsInCart = $this->model->getProductsWithMoreId($StrIdArr);
-                    $cartItemList = [];
+                    echo '<h1>Đã cập nhật</h1>';
+                    $cartList = getSession('cart');
+                    if(!isset($cartList) || empty($cartList)){
+                        header('Location: '. ROOTURL . '/cart');
+                    }else{
     
-                    for($i = 0;$i<count($cart);$i++){
-                        $cartItemList[] = [
-                            'id' => $cart[$i]['id'],
-                            'name' => $productsInCart[$i]->name,
-                            'image' => $productsInCart[$i]->image,
-                            'qty' => $cart[$i]['qty'],
-                            'price' => $cart[$i]['qty'] *  $productsInCart[$i]->price,
-                        ];
-                    }
-    
-                    $totalPrice = 0;
-                    foreach($cartItemList as $c){
-                        $totalPrice+= $c['price'];
-                    }
-                    
-                    
-                    if($this->orderModel->addOrder($userInfo->id,$totalPrice)){
-                        $orderObj = $this->orderModel->getOrderIDOfUser($userInfo->id);
-                        foreach($cartItemList as $c){
-                            $this->orderModel->addOrderDetal($c['id'],$orderObj->id,$c['qty'],$c['price']);
+                        $StrIdArr = "";
+                        $cart = $cartList;
+                        for($i = 0;$i<count($cart);$i++){
+                            $char = ",";
+                           if($i === count($cart)-1){
+                                $char=  "";    
+                           }
+                           $StrIdArr = $StrIdArr . (string)$cart[$i]['id'] . $char;
                         }
+    
+                        $productsInCart = $this->model->getProductsWithMoreId($StrIdArr);
+                        $cartItemList = [];
+        
+                        for($i = 0;$i<count($cart);$i++){
+                            $cartItemList[] = [
+                                'id' => $cart[$i]['id'],
+                                'name' => $productsInCart[$i]->name,
+                                'image' => $productsInCart[$i]->image,
+                                'qty' => $cart[$i]['qty'],
+                                'price' => $cart[$i]['qty'] *  $productsInCart[$i]->price,
+                            ];
+                        }
+        
+                        $totalPrice = 0;
+                        foreach($cartItemList as $c){
+                            $totalPrice+= $c['price'];
+                        }
+                        
+                        $lastInsertedId = $this->orderModel->addOrder($userInfo->id,$totalPrice);
+                        if(is_numeric($lastInsertedId)){ 
+                            foreach($cartItemList as $c){
+                                $this->orderModel->addOrderDetal($c['id'],$lastInsertedId,$c['qty'],$c['price']);
+                                $this->model->decreaseQuantityById($c['id']);
+                            }
+                        }
+                        $data['isSuccess'] = 1;
+                        clearSession('cart');
                     }
-                    clearSession('cart');
                 }
-                $data['isSuccess'] = true;
-                $this->renderView('cart/checkout',$data);
+                
+               
+               $this->renderView('cart/checkout',$data);
             }
             else{
                 $this->renderView('cart/checkout',$data);

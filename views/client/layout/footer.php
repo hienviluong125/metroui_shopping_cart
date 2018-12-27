@@ -15,11 +15,11 @@
                 </div>
                 <div class="cell-3 pr-5">
                     <h5 class="text-medium mb-5 fg-white mt-5">Mua hàng</h5>
-                    <p class="fg-white m-0"><a class="fg-white" href="http://">Tai nghe</a></p>
-                    <p class="fg-white m-0"><a class="fg-white" href="http://">Bàn phím</a></p>
-                    <p class="fg-white m-0"><a class="fg-white" href="http://">Chuột</a></p>
-                    <p class="fg-white m-0"><a class="fg-white" href="http://">Máy tính để bàn</a></p>
-                    <p class="fg-white m-0"><a class="fg-white" href="http://">Ghế</a></p>
+                    <p class="fg-white m-0"><a class="fg-white" href="<?php echo ROOTURL . '/product/show/category/tai-nghe/1'; ?>">Tai nghe</a></p>
+                    <p class="fg-white m-0"><a class="fg-white" href="<?php echo ROOTURL . '/product/show/category/ban-phim/1'; ?>">Bàn phím</a></p>
+                    <p class="fg-white m-0"><a class="fg-white" href="<?php echo ROOTURL . '/product/show/category/chuot/1'; ?>">Chuột</a></p>
+                    <p class="fg-white m-0"><a class="fg-white" href="<?php echo ROOTURL . '/product/show/category/may-tinh/1'; ?>">Máy tính để bàn</a></p>
+                    <p class="fg-white m-0"><a class="fg-white" href="<?php echo ROOTURL . '/product/show/category/ghe/1'; ?>">Ghế</a></p>
                 </div>
                 <div class="cell-3 pr-5">
                     <h5 class="text-medium  fg-white mt-5">Kết nối</h5>
@@ -37,11 +37,11 @@
                 </div>
                 <div class="cell-3 pr-5">
                     <h5 class="text-medium  fg-white mt-5">Các đối tác chính</h5>
-                    <p class="fg-white m-0"><a class="fg-white" href="http://">Asus</a></p>
-                    <p class="fg-white m-0"><a class="fg-white" href="http://">Razer</a></p>
-                    <p class="fg-white m-0"><a class="fg-white" href="http://">MSI</a></p>
-                    <p class="fg-white m-0"><a class="fg-white" href="http://">Logitech</a></p>
-                    <p class="fg-white m-0"><a class="fg-white" href="http://">Fuhlen</a></p>
+                    <p class="fg-white m-0"><a class="fg-white" href="<?php echo ROOTURL . '/product/show/brand/asus/1'; ?>">Asus</a></p>
+                    <p class="fg-white m-0"><a class="fg-white" href="<?php echo ROOTURL . '/product/show/brand/razer/1'; ?>">Razer</a></p>
+                    <p class="fg-white m-0"><a class="fg-white" href="<?php echo ROOTURL . '/product/show/brand/msi/1'; ?>">MSI</a></p>
+                    <p class="fg-white m-0"><a class="fg-white" href="<?php echo ROOTURL . '/product/show/brand/logitech/1'; ?>">Logitech</a></p>
+                    <p class="fg-white m-0"><a class="fg-white" href="<?php echo ROOTURL . '/product/show/brand/fuhlen/1'; ?>">Fuhlen</a></p>
                 </div>
             </div>
         </div>

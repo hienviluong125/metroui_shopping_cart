@@ -18,13 +18,53 @@
         }
 
         public function getInfoUser($username){
-            $query = "select id,username,fullname,avatar,email,role,phone,address from users where username = (:username)";
+            $query = "select id,password,username,fullname,avatar,email,role,phone,address from users where username = (:username)";
             $this->db->prepare($query);
             $this->db->bindValue(':username',$username,'string');
             if($this->db->execute()){
                 return $this->db->fetchOne();
             }else{
                 return null;
+            }
+        }
+
+        public function changePasswordByUsername($username,$password){
+            $query = "update users set 
+                    password = (:password)
+                    where username = (:username)           
+            ";
+            $this->db->prepare($query);
+            $this->db->bindValue(':username',$username,'string');
+            $this->db->bindValue(':password',$password,'string');
+            if($this->db->execute()){
+                return true;
+            }else{
+                return false;
+            }
+        }
+
+
+        public function updateInfoByUsername($username, $data){
+            $query = "update users set 
+                    fullname = (:fullname),
+                    email = (:email),
+                    phone = (:phone),
+                    address = (:address),
+                    avatar = (:avatar)
+                    where username = (:username)           
+                    ";
+
+            $this->db->prepare($query);
+            $this->db->bindValue(':fullname',$data['fullname'],'string');
+            $this->db->bindValue(':email',$data['email'],'string');
+            $this->db->bindValue(':phone',$data['phone'],'string');
+            $this->db->bindValue(':address',$data['address'],'string');
+            $this->db->bindValue(':avatar',$data['avatar'],'string');
+            $this->db->bindValue(':username',$username,'string');
+            if($this->db->execute()){
+                return true;
+            }else{
+                return false;
             }
         }
 
@@ -52,6 +92,8 @@
           
         }
 
+        
+
         public function login($param){
             // -1 : username no exist, 0 : password no correct, 1 : login success
             $query = "select * from users where users.username = :username";
@@ -64,11 +106,6 @@
                 //check correct password
                 $hash = md5($param['password']);
                 if($user->password == $hash){
-                    $userStorage = [
-                        'username'=>$user->username,
-                        'role'=>$user->role
-                    ];
-                    createSession('user',$userStorage);
                     return 1;
                 }else{
                     return 0;
@@ -78,7 +115,9 @@
             }
         }
         
-        // public function 
+        //  public function orders(){
+
+        //  }
 
 
 

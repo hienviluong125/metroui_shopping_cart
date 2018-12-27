@@ -31,7 +31,7 @@
                                         <?php echo $u->fullname ?>
                                     </td>
                                     <td>
-                                        <img height="50px" src="<?php echo ROOTURL . '/public/img/' . $product->avatar?>" />
+                                        <img height="50px" src="<?php echo ROOTURL . '/public/img/' . $u->avatar?>" />
                                     </td>
                                     
                                     <td>

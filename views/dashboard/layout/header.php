@@ -1,4 +1,4 @@
-<aside style="height:700px !important;"
+<aside 
        class="sidebar pos-absolute z-2"
        data-role="sidebar"
        data-toggle="#sidebar-toggle-4"
@@ -14,10 +14,10 @@
         <span class="subtitle fg-white"> 2018 © Sergey Pimenov</span>
     </div>
     <ul class="sidebar-menu">
-        <li><a href="<?php echo ROOTURL . '/dashboard/user/show' ?>" ><span class="mif-home icon"></span>Home</a></li>
-        <li><a href="<?php echo ROOTURL . '/dashboard/product/show/1' ?>"><span class="mif-books icon"></span>Guide</a></li>
-        <li><a href="<?php echo ROOTURL . '/dashboard/category/show/1' ?>"><span class="mif-files-empty icon"></span>Examples</a></li>
-        <li class="divider"></li>
-        <li><a href="<?php echo ROOTURL . '/dashboard/brand/show/1' ?>"><span class="mif-images icon"></span>Icons</a></li>
+        <li><a href="<?php echo ROOTURL . '/dashboard/user/show' ?>" ><span class="mif-home icon"></span>Quản lý người dùng</a></li>
+        <li><a href="<?php echo ROOTURL . '/dashboard/product/show/1' ?>"><span class="mif-books icon"></span>Quản lý sản phẩm</a></li>
+        <li><a href="<?php echo ROOTURL . '/dashboard/category/show/1' ?>"><span class="mif-files-empty icon"></span>Quản lý loại</a></li>
+        <li><a href="<?php echo ROOTURL . '/dashboard/brand/show/1' ?>"><span class="mif-images icon"></span>Quản lý nhà sản xuất</a></li>
+        <li><a href="<?php echo ROOTURL . '/dashboard/order/show' ?>"><span class="mif-images icon"></span>Quản lý đơn hàng</a></li>
     </ul>
 </aside>

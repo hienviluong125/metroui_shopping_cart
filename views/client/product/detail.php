@@ -5,17 +5,26 @@
             <div class="cell-6">
                 <div class="row">
                     <div class="cell-12">
-                        <img src="<?php echo ROOTURL . '/public/img/' . $data['product']['productDetail']->image?>" class="fotorama__img"
+                        <img class="big-img" src="<?php echo ROOTURL . '/public/img/' . $data['product']['productDetail']->image?>" class="fotorama__img"
                             width="80%">
                     </div>
-                    <div class="cell-3">
-                        <img src="<?php echo ROOTURL . '/public/img/' . $data['product']['productDetail']->image?>" width="80%">
-                    </div>
+                    <div class="cell-12">
+                        <div class="row image-list">
+                        <div class="cell-3 pl-1 pr-1">
+                            <div class="img-box border bd-cyan text-center p-2">
+                                <img src="<?php echo ROOTURL . '/public/img/' . $data['product']['productDetail']->image?>" width="80%">
+                            </div>
+                        </div>
                     <?php foreach($data['imageList'] as $image){?>
-                    <div class="cell-3">
-                        <img src="<?php echo ROOTURL . '/public/img/' . $image->image?>" width="80%">
-                    </div>
+                        <div class="cell-3  pl-1 pr-1">
+                            <div class="img-box border bd-white text-center p-2">
+                                <img src="<?php echo ROOTURL . '/public/img/' . $image->image?>" width="80%">
+                            </div>
+                        </div>
                     <?php } ?>
+                        </div>
+                    </div>
+                    
                 </div>
 
             </div>
@@ -33,6 +42,9 @@
                 <p class="p-0 ">Lượt xem :
                     <?php echo $data['product']['productDetail']->views ?>
                 </p>
+                <p class="p-0 ">Số lượng :
+                    <?php echo $data['product']['productDetail']->quantity ?>
+                </p>
                 <p class="p-0 ">Xuất xứ :
                     <?php echo $data['product']['productDetail']->origin ?>
                 </p>
@@ -44,7 +56,12 @@
                             <?php echo(number_format($data['product']['productDetail']->price*1000))?>&nbsp;₫</strong>
                     </span>
                 </p>
-                <button data-productid = "<?php echo $data['product']['productDetail']->id?>"class="button add-to-cart primary large rounded bg-red mt-3">Đặt Hàng</button>
+                <?php if($data['product']['productDetail']->quantity < 1){?>
+                    <button data-productid = "<?php echo $data['product']['productDetail']->id?>" disabled class="button add-to-cart primary large rounded bg-red mt-3">Hết hàng</button>
+                <?php }else{ ?>
+                    <button data-productid = "<?php echo $data['product']['productDetail']->id?>" class="button add-to-cart primary large rounded bg-red mt-3">Đặt Hàng</button>
+                <?php }?>
+               
             </div>
         </div>
     </div>
@@ -58,13 +75,15 @@
                 <div class="sliders">
                     <?php foreach($data['product']['sameCateProduct'] as $item){?>
                     <div class="single-item float-left">
-                        <img src="<?php echo ROOTURL . '/public/img/' . $item->image;?>"  width="150" height="150"  />
-                        <div class="single-item-card">
-                            <p class="m-0 p-0"><?php  echo (substr($item->name,0,15) . '...')?></p>
-                            <p class="fg-red m-0 p-0"><?php echo  number_format($item->price*1000) ?>₫</p>
-                            <a class="button mini mb-3 bg-grayBlue fg-white " href="<?php echo ROOTURL . '/product/detail/' . $item->link_name?>" >Chi tiết</a>
-                            <button data-productid="<?php echo $item->id?>" class="button add-to-cart mini bg-darkGreen fg-white mb-3">Mua ngay</button>
-                        </div>
+                        <a style="text-decoration:none" href="<?php echo ROOTURL . '/product/detail/' . $item->link_name?>">
+                            <img src="<?php echo ROOTURL . '/public/img/' . $item->image;?>" width="186px" height="186px" />
+                            <div class="single-item-card">
+                                <p class="m-0 p-0 fg-white"><?php  echo (substr($item->name,0,15) . '...')?></p>
+                                <small class="fg-red mt-1 p-0"><?php echo  number_format($item->price*1000) ?>₫</small>
+                                <a class="button small bg-grayBlue fg-white " href="<?php echo ROOTURL . '/product/detail/' . $item->link_name?>" >Chi tiết</a>
+                            
+                            </div>
+                        </a>
                     </div>
                     <?php } ?>
                 </div>
@@ -84,13 +103,15 @@
                 <div class="sliders">
                     <?php foreach($data['product']['sameBrandProduct'] as $item){?>
                     <div class="single-item float-left">
-                        <img src="<?php echo ROOTURL . '/public/img/' . $item->image;?>" width="150" height="150" />
-                        <div class="single-item-card">
-                            <p class="m-0 p-0"><?php  echo (substr($item->name,0,15) . '...')?></p>
-                            <p class="fg-red m-0 p-0"><?php echo  number_format($item->price*1000) ?>₫</p>
-                            <a class="button mini mb-3 bg-grayBlue fg-white " href="<?php echo ROOTURL . '/product/detail/' . $item->link_name?>" >Chi tiết</a>
-                            <button data-productid="<?php echo $item->id?>" class="button add-to-cart mini bg-darkGreen fg-white mb-3">Mua ngay</button>
-                        </div>
+                        <a style="text-decoration:none" href="<?php echo ROOTURL . '/product/detail/' . $item->link_name?>">
+                            <img src="<?php echo ROOTURL . '/public/img/' . $item->image;?>" width="186px" height="186px" />
+                            <div class="single-item-card">
+                                <p class="m-0 p-0 fg-white"><?php  echo (substr($item->name,0,15) . '...')?></p>
+                                <small class="fg-red mt-1 p-0"><?php echo  number_format($item->price*1000) ?>₫</small>
+                                <a class="button small bg-grayBlue fg-white " href="<?php echo ROOTURL . '/product/detail/' . $item->link_name?>" >Chi tiết</a>
+                            
+                            </div>
+                        </a>
                     </div>
                     <?php } ?>
                 </div>
